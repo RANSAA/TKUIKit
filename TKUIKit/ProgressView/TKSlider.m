@@ -67,6 +67,17 @@
     [super setThumbImage:image forState:state];
     _isAddThumb = YES;
 }
+
+- (void)setShowThumb:(BOOL)showThumb
+{
+    _showThumb = showThumb;
+    UIImage *image = self.currentThumbImage;
+    if (!showThumb) {
+        image = [UIImage new];
+    }
+    [self setThumbImage:image forState:UIControlStateNormal];
+    [self setThumbImage:image forState:UIControlStateHighlighted];
+}
     
 
 - (void)setDelegate:(id<TKSilderDelegate>)delegate
@@ -163,6 +174,10 @@
         heightAnchor.active = YES;
         widthAchor.active = YES;
         self.layWidth = widthAchor;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self setNeedsBufferView];
+        });
     }
 }
 
@@ -174,10 +189,19 @@
 
 - (void)setBufferValue:(CGFloat)bufferValue
 {
-    bufferValue = bufferValue<0.0?0.0:(bufferValue>1.0?1.0:bufferValue);
-    CGFloat width = self.bounds.size.width;
-    self.layWidth.constant = width*bufferValue;
+    _bufferValue = bufferValue<0.0?0.0:(bufferValue>1.0?1.0:bufferValue);
+    [self setNeedsBufferView];
 }
 
+- (void)setNeedsBufferView
+{
+    CGFloat width = self.bounds.size.width;
+    self.layWidth.constant = width*_bufferValue;
+}
+
+- (void)dealloc
+{
+    NSLog(@"dellll...");
+}
 
 @end

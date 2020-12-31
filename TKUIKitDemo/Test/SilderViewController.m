@@ -37,15 +37,16 @@
     self.slider.showBufferView = YES;
 
     
-    UIImage *image1 = [UIImage TKCreateSquareWithColor:UIColor.orangeColor size:CGSizeMake(15, 15) alpha:1.0];
-    self.slider.minimumValueImage = image1;
-    UIImage *image2 = [UIImage TKCreateSquareWithColor:UIColor.purpleColor size:CGSizeMake(15, 15) alpha:1.0];
-    self.slider.maximumValueImage = image2;
+//    UIImage *image1 = [UIImage TKCreateSquareWithColor:UIColor.orangeColor size:CGSizeMake(15, 15) alpha:1.0];
+//    self.slider.minimumValueImage = image1;
+//    UIImage *image2 = [UIImage TKCreateSquareWithColor:UIColor.purpleColor size:CGSizeMake(15, 15) alpha:1.0];
+//    self.slider.maximumValueImage = image2;
     
     UIImage *image3 = [self TKCreateCircularWithColor:UIColor.redColor size:CGSizeMake(12, 12) alpha:1.0];
     [self.slider setThumbImage:image3 forState:UIControlStateNormal];
     [self.slider setThumbImage:image3 forState:UIControlStateHighlighted];
     NSLog(@"imageSize:%@    scale:%f",NSStringFromCGSize(image3.size),image3.scale);
+//    self.slider.showThumb = NO;
 
 
     
@@ -59,6 +60,9 @@
 //    slider1.maximumValueImage = image2;
 //    slider1.isThumbCenter = YES;
     slider1.delegate = self;
+    slider1.showThumb = NO;
+    slider1.showBufferView = YES;
+    slider1.bufferValue = 0.50;
 
 
 
@@ -77,7 +81,7 @@
     NSLog(@"changedValue:%.2f",value);
 //    value += 5;
     CGFloat s = (value-slider.minimumValue)/slider.maximumValue;
-    slider.bufferValue = s+0.2;
+    slider.bufferValue = s;
 }
 
 - (void)TKSliderTouchBegan:(TKSlider *)slider

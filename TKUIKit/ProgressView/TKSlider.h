@@ -32,11 +32,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface TKSlider : UISlider
-/**thumb滑动到首尾时是否居中 */
-@property (nonatomic, assign) BOOL isThumbCenter;
+@property (nonatomic, weak) id<TKSilderDelegate> delegate;
 /** 是否允许点击 */
 @property (nonatomic, assign) BOOL isClick;
-@property (nonatomic, weak) id<TKSilderDelegate> delegate;
+/**thumb滑动到首尾时是否居中 */
+@property (nonatomic, assign) BOOL isThumbCenter;
+/** 是否显示thumb */
+@property (nonatomic, assign) BOOL showThumb;
+
+
 
 /** 缓冲条,默认不显示 */
 @property (nonatomic, strong) UIView *bufferView;
