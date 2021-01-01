@@ -9,6 +9,9 @@
 #ifndef TKUIKit_h
 #define TKUIKit_h
 
+//三方库引用
+#import "TKUIKitImportExternal.h"
+
 #import "TKSlider.h"
 
 

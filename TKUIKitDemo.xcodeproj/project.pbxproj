@@ -24,6 +24,7 @@
 /* Begin PBXFileReference section */
 		2E2F947C2C367C39646F4D22 /* Pods-TKUIKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKUIKitDemo.release.xcconfig"; path = "Target Support Files/Pods-TKUIKitDemo/Pods-TKUIKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3F23FFD0259F470A000B3F30 /* TKUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUIKit.h; sourceTree = "<group>"; };
+		3F23FFD4259F5AC9000B3F30 /* TKUIKitImportExternal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUIKitImportExternal.h; sourceTree = "<group>"; };
 		3FD9F99C259DAE220034B8D1 /* TKUIKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKUIKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9F99F259DAE220034B8D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FD9F9A0259DAE220034B8D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 				3FD9F9BE259DAFC50034B8D1 /* TKSlider.h */,
 				3FD9F9BF259DAFC50034B8D1 /* TKSlider.m */,
 				3F23FFD0259F470A000B3F30 /* TKUIKit.h */,
+				3F23FFD4259F5AC9000B3F30 /* TKUIKitImportExternal.h */,
 			);
 			path = TKUIKit;
 			sourceTree = "<group>";

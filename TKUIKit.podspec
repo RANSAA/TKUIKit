@@ -16,10 +16,9 @@ s.license      = "MIT"     #开源协议方式
 s.author       = { "sayaDev" => "1352892108@qq.com" }    #作者
 s.platform     = :ios, '9.0'
 s.requires_arc = true    #支持arc
-
-
 #s.swift_version = '5.0'
-#s.default_subspec = 'Core'
+
+s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES"}
 
 s.frameworks = 'UIKit', 'Foundation'
 
@@ -28,6 +27,8 @@ s.public_header_files  = "#{name}/#{file_header}"
 s.source_files  =  "#{name}/#{file_source}"
 
 s.dependency 'TKBaseKit/TKSDKUniversal'
+
+
 
 
 end
