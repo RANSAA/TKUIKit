@@ -42,7 +42,7 @@
 //    UIImage *image2 = [UIImage TKCreateSquareWithColor:UIColor.purpleColor size:CGSizeMake(15, 15) alpha:1.0];
 //    self.slider.maximumValueImage = image2;
     
-    UIImage *image3 = [self TKCreateCircularWithColor:UIColor.redColor size:CGSizeMake(12, 12) alpha:1.0];
+    UIImage *image3 = [UIImage TKCreateCircularWithColor:UIColor.redColor size:CGSizeMake(12, 12) alpha:1.0];
     [self.slider setThumbImage:image3 forState:UIControlStateNormal];
     [self.slider setThumbImage:image3 forState:UIControlStateHighlighted];
     NSLog(@"imageSize:%@    scale:%f",NSStringFromCGSize(image3.size),image3.scale);
@@ -95,22 +95,6 @@
 }
 
 
-- (UIImage*)TKCreateCircularWithColor:(UIColor*)color size:(CGSize)size alpha:(CGFloat)alpha
-{
-    alpha = alpha>1?1:(alpha<0?0:alpha);
-//    UIGraphicsBeginImageContext(size);
-    //https://blog.csdn.net/larryluoshuai/article/details/78200434
-    UIGraphicsBeginImageContextWithOptions(size,NO, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetAlpha(context, alpha);
-    CGContextSetFillColorWithColor(context,color.CGColor);
-    CGContextFillEllipseInRect(context, (CGRect){{0,0},size});
-
-    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return  resultImage;
-
-}
 /*
 #pragma mark - Navigation
 

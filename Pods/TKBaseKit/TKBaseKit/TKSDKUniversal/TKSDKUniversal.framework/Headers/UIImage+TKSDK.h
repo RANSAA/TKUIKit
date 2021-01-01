@@ -17,7 +17,7 @@ PS:
 
 3.如果生成的UIImage需要压缩请使用YYImage中的图片编码器，YYImage图片编码器会吧透明区域编码成白色，如果
 
-
+ :https://blog.csdn.net/larryluoshuai/article/details/78200434
 */
 
 #import <UIKit/UIKit.h>
@@ -60,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  * size:圆形/椭圆的大小
  * alpha:透明度
  */
+
 +(UIImage*)TKCreateCircularWithColor:(UIColor*)color size:(CGSize)size alpha:(CGFloat)alpha;
 
 /**
