@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F18230925A0B59500C2F574 /* NSObject+A.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F18230825A0B59500C2F574 /* NSObject+A.m */; };
+		3F18230C25A0B5A000C2F574 /* NSObject+B.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F18230B25A0B5A000C2F574 /* NSObject+B.m */; };
 		3FD9F9A1259DAE220034B8D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9F9A0259DAE220034B8D1 /* AppDelegate.m */; };
 		3FD9F9A4259DAE220034B8D1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9F9A3259DAE220034B8D1 /* SceneDelegate.m */; };
 		3FD9F9A7259DAE220034B8D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9F9A6259DAE220034B8D1 /* ViewController.m */; };
@@ -23,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		2E2F947C2C367C39646F4D22 /* Pods-TKUIKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKUIKitDemo.release.xcconfig"; path = "Target Support Files/Pods-TKUIKitDemo/Pods-TKUIKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		3F18230725A0B59500C2F574 /* NSObject+A.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+A.h"; sourceTree = "<group>"; };
+		3F18230825A0B59500C2F574 /* NSObject+A.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+A.m"; sourceTree = "<group>"; };
+		3F18230A25A0B5A000C2F574 /* NSObject+B.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+B.h"; sourceTree = "<group>"; };
+		3F18230B25A0B5A000C2F574 /* NSObject+B.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+B.m"; sourceTree = "<group>"; };
 		3F23FFD0259F470A000B3F30 /* TKUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUIKit.h; sourceTree = "<group>"; };
 		3F23FFD4259F5AC9000B3F30 /* TKUIKitImportExternal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUIKitImportExternal.h; sourceTree = "<group>"; };
 		3FD9F99C259DAE220034B8D1 /* TKUIKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKUIKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +135,10 @@
 			children = (
 				3FD9F9C5259DB2440034B8D1 /* SilderViewController.h */,
 				3FD9F9C6259DB2440034B8D1 /* SilderViewController.m */,
+				3F18230725A0B59500C2F574 /* NSObject+A.h */,
+				3F18230825A0B59500C2F574 /* NSObject+A.m */,
+				3F18230A25A0B5A000C2F574 /* NSObject+B.h */,
+				3F18230B25A0B5A000C2F574 /* NSObject+B.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -278,6 +288,8 @@
 				3FD9F9A7259DAE220034B8D1 /* ViewController.m in Sources */,
 				3FD9F9C3259DB20A0034B8D1 /* TableViewController.m in Sources */,
 				3FD9F9A1259DAE220034B8D1 /* AppDelegate.m in Sources */,
+				3F18230C25A0B5A000C2F574 /* NSObject+B.m in Sources */,
+				3F18230925A0B59500C2F574 /* NSObject+A.m in Sources */,
 				3FD9F9B2259DAE230034B8D1 /* main.m in Sources */,
 				3FD9F9A4259DAE220034B8D1 /* SceneDelegate.m in Sources */,
 				3FD9F9C0259DAFC50034B8D1 /* TKSlider.m in Sources */,
