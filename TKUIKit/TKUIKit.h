@@ -10,9 +10,14 @@
 #define TKUIKit_h
 
 //三方库引用
-#import "TKUIKitImportExternal.h"
+#import "TKUIImportSDK.h"
 
-#import "TKSlider.h"
+//Core
+#import "TKUICoreDefine.h"
+
+//View
+#import "TKViewDefine.h"
+
 
 
 #endif /* TKUIKit_h */

@@ -1,9 +1,9 @@
 file_header       = "*.h"
-file_source       = "*.{h,m}"
+file_source       = "*.{h,m,xib}"
 
 
 name		= "TKUIKit"
-ver 		= "0.0.1"
+version 	= "0.0.1"
 homepage 	= "https://github.com/RANSAA/TKUIKit"
 
 
@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
 s.name         = "#{name}"   
 s.summary      = '该项目集成了一些常用的UI控件'
 s.homepage     = "#{homepage}"
+s.version	   = "#{version}"
 s.source       = { :git => "#{homepage}.git", :tag => "v#{s.version}" } #对应github资源与版本
 s.license      = "MIT"     #开源协议方式
 s.author       = { "sayaDev" => "1352892108@qq.com" }    #作者
@@ -32,27 +33,31 @@ s.public_header_files  = "#{name}/#{file_header}"
 
 s.source_files  =  "#{name}/#{file_source}"
 
-s.dependency 'TKBaseKit/TKSDKUniversal'
+# s.dependency 'TKBaseKit/TKSDKUniversal'
+# s.dependency 'TKBaseKit/TKSDKTool'
+
+s.resource_bundles = {
+  'TKUIKit' => ["#{name}/**/**/*.{xib}"]#pod 编译后会生成TKUIKitBundle.bundle 文件
+}
 
 
+s.subspec 'Core' do |ss|
+    ss.source_files         = "#{name}/Core/#{file_source}" , "#{name}/Core/**/#{file_source}"
+    ss.public_header_files  = "#{name}/Core/#{file_header}" , "#{name}/Core/**/#{file_header}"
+    # ss.resources            = "#{name}/Core/*.bundle"
+    ss.dependency 'TKBaseKit/TKSDKUniversal'
+    ss.dependency 'TKBaseKit/TKSDKTool'
 
+  end
 
-
-#s.default_subspec = 'Public'
-
-# spec.subspec 'Public' do |ss|
-#     ss.source_files         = public_source
-#     ss.public_header_files  = public_header
-#     ss.ios.frameworks       = "Foundation", "UIKit"
-#     # ss.dependency "#{name}/Resources"    #依赖
-#   end
-
-#  spec.subspec 'Photo' do |ss|
-#     ss.source_files         = "#{name}/Photo/#{file_source}"
-#     ss.public_header_files  = "#{name}/Photo/#{file_header}"
-#     ss.ios.frameworks       = "Photos"
-#     ss.dependency "#{public_base}"    #依赖
-#  end
+ s.subspec 'View' do |ss|
+    ss.source_files         = "#{name}/View/#{file_source}","#{name}/View/**/#{file_source}"
+    ss.public_header_files  = "#{name}/View/#{file_header}","#{name}/View/**/#{file_header}"
+    ss.dependency "TKUIKit/Core"    #依赖
+    # ss.resource_bundles = {
+    #   'TKUIKit' => ["#{name}/View/**/*.{xib}"]#pod 编译后会生成TKUIKitBundle.bundle 文件
+    # }
+ end
 
 
 end

@@ -8,6 +8,8 @@
 
 #import "TableViewController.h"
 #import "SilderViewController.h"
+#import "AlertViewController.h"
+
 
 
 @interface TableViewController ()
@@ -28,6 +30,7 @@
 {
     self.dataVC = @[].mutableCopy;
     [self.dataVC addObject:[SilderViewController createVC]];
+    [self.dataVC addObject:[AlertViewController createVC]];
     
 }
 
@@ -55,8 +58,23 @@
 {
     NSInteger row = indexPath.row;
     UIViewController *vc = self.dataVC[row];
-    vc = [SilderViewController createVC];
-    [self presentViewController:vc animated:YES completion:nil];
+//    vc = [SilderViewController createVC];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
+    vc.restorationIdentifier = @"VC-A";
+    [self pushViewController:vc animated:YES];
+    
+//    [self addChildViewController:vc];
+//    [self.view addSubview:vc.view];
+//    vc.view.frame = self.view.bounds;
+    
+//    
+//    NSLog(@"[UIApplication sharedApplication].keyWindow.rootViewController");
+//      NSLog(@"rootViewController name:%@",[UIApplication sharedApplication].keyWindow.rootViewController);
+//         [TKPermissionCamera authWithAlert:YES completion:^(BOOL isAuth) {
+//             if (isAuth) {
+//             }
+//         }];
 }
 
 /*

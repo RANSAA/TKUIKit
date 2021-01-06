@@ -29,10 +29,17 @@ PODS:
     - MJRefresh
     - YYModel
   - TKBaseKit/TKSDKUniversal (2.1.5)
+  - TKPermissionKit/Camera (1.2.2):
+    - TKPermissionKit/Public
+  - TKPermissionKit/Photo (1.2.2):
+    - TKPermissionKit/Public
+  - TKPermissionKit/Public (1.2.2)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - TKBaseKit
+  - TKBaseKit (from `/Users/D/Remote/TKBaseKit`)
+  - TKPermissionKit/Camera (from `/Users/D/Remote/TKPermissionKit`)
+  - TKPermissionKit/Photo (from `/Users/D/Remote/TKPermissionKit`)
 
 SPEC REPOS:
   trunk:
@@ -41,8 +48,13 @@ SPEC REPOS:
     - Masonry
     - MBProgressHUD
     - MJRefresh
-    - TKBaseKit
     - YYModel
+
+EXTERNAL SOURCES:
+  TKBaseKit:
+    :path: "/Users/D/Remote/TKBaseKit"
+  TKPermissionKit:
+    :path: "/Users/D/Remote/TKPermissionKit"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -51,8 +63,9 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   TKBaseKit: b5b1e4cb9203a76d1fd6605dc3cfcfea95e01b18
+  TKPermissionKit: 0386bebdaa9bc48dc03e82df8efbf247b41f93ee
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 5036c04c3bbe41c1e48d63c878629dd033898523
+PODFILE CHECKSUM: 6b88bb2a20430fabef2ead32eb802596609d9c89
 
 COCOAPODS: 1.10.0

@@ -36,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"ClassName:%@",self.class);
-    self.view.backgroundColor = UIColor.systemBackgroundColor;
+    self.view.backgroundColor = UIColor.whiteColor;
     [self setupUI];
     
     [self addBack];

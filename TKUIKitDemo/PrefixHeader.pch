@@ -20,6 +20,7 @@
 
 //#import "TKSlider.h"
 
+#import "UIView+Controller.h"
 
 
 #endif /* PrefixHeader_pch */
