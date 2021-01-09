@@ -147,10 +147,14 @@
         
 //        UINavigationBar* aperBar = navigationBar;
         UINavigationBar* aperBar = [UINavigationBar appearance];//ios13.0+只能使用[UINavigationBar appearance]修改
-        aperBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
-        aperBar.tintColor = [UIColor blackColor];
-        aperBar.barTintColor  = UIColor.whiteColor;
-        aperBar.translucent = NO;
+//        aperBar.translucent = NO;
+        UIColor *bgColor = [UIColor TKLightColor:UIColor.whiteColor darkColor:UIColor.blackColor];
+        UIColor *titleColor  = [UIColor TKLightColor:UIColor.blackColor darkColor:kRGBColor(188, 188, 192)];
+        UIColor *backColor   = [UIColor TKLightColor:kRGBColor(68, 68, 70) darkColor:kRGBColor(188, 188, 192)];
+        aperBar.barTintColor = bgColor;
+        aperBar.titleTextAttributes = @{NSForegroundColorAttributeName:titleColor};
+        aperBar.tintColor = backColor;
+        
         //设置图片背景
 //        [aperBar setBackgroundImage:kImageName(@"nav-bar") forBarMetrics:UIBarMetricsDefault];
 //        aperBar.shadowImage = [UIImage new];
