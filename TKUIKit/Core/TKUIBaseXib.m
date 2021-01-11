@@ -13,7 +13,7 @@
 /**
  重写该方法，可从指定bundle中加载xib
  */
-- (NSBundle *)retrunBundle
+- (NSBundle *)returnBundle
 {
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
@@ -30,5 +30,6 @@
     });
     return bundle;
 }
+
 
 @end

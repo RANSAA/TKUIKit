@@ -19,7 +19,7 @@
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
     self.selectedRow = 0;
-
+        
     self.labTitle.text = nil;
     self.labTitle.font = [UIFont systemFontOfSize:16];
     
@@ -33,6 +33,7 @@
     [self.btnDone setTitleColor:backColor];
     [self.btnCancel setTitleColor:backColor];
 }
+
 
 - (void)show
 {
@@ -162,7 +163,6 @@
 {
     self.selectedRow = row;
     [pickerView reloadAllComponents];
-    TKLog(@"row:%ld",row);
 }
 
 
