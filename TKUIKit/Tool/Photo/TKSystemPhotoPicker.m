@@ -8,7 +8,7 @@
 
 #import "TKSystemPhotoPicker.h"
 #import <CoreServices/CoreServices.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+//#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface TKSystemPhotoPicker ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic, strong) UIImagePickerController *imagePicker;

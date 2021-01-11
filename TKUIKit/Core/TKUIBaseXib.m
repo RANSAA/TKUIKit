@@ -28,7 +28,6 @@
             bundle = xibBundle;
         }
     });
-    NSLog(@"bundel:%@",bundle);
     return bundle;
 }
 

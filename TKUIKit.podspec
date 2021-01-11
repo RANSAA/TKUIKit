@@ -27,7 +27,7 @@ s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES"}
 
 
 
-s.frameworks = 'UIKit', 'Foundation'
+s.frameworks = 'UIKit', 'Foundation', 'CoreServices'
 
 s.public_header_files  = "#{name}/#{file_header}"
 
@@ -57,6 +57,12 @@ s.subspec 'Core' do |ss|
     # ss.resource_bundles = {
     #   'TKUIKit' => ["#{name}/View/**/*.{xib}"]#pod 编译后会生成TKUIKitBundle.bundle 文件
     # }
+ end
+
+  s.subspec 'Tool' do |ss|
+    ss.source_files         = "#{name}/Tool/#{file_source}","#{name}/Tool/**/#{file_source}"
+    ss.public_header_files  = "#{name}/Tool/#{file_header}","#{name}/Tool/**/#{file_header}"
+    ss.dependency "TKUIKit/Core"    #依赖
  end
 
 

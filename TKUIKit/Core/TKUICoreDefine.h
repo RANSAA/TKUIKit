@@ -9,6 +9,9 @@
 #ifndef TKUICoreDefine_h
 #define TKUICoreDefine_h
 
+//三方库引用
+#import "TKUIImportSDK.h"
+
 
 #import "TKUIBaseXib.h"
 #import "TKAnimation.h"

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3F18230925A0B59500C2F574 /* NSObject+A.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F18230825A0B59500C2F574 /* NSObject+A.m */; };
 		3F18230C25A0B5A000C2F574 /* NSObject+B.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F18230B25A0B5A000C2F574 /* NSObject+B.m */; };
+		3F48921925AC2C9B006AF5C8 /* TKDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F48921825AC2C9B006AF5C8 /* TKDatePickerView.xib */; };
+		3F48921C25AC2CA9006AF5C8 /* TKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48921B25AC2CA9006AF5C8 /* TKDatePickerView.m */; };
+		3F48921F25AC2CB5006AF5C8 /* TKSimplePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48921E25AC2CB5006AF5C8 /* TKSimplePickerView.m */; };
+		3F48922125AC2CBF006AF5C8 /* TKSimplePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F48922025AC2CBF006AF5C8 /* TKSimplePickerView.xib */; };
 		3F8118C825A1C414005F6084 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8118C725A1C414005F6084 /* AlertViewController.m */; };
 		3F8118DC25A1DE0B005F6084 /* TKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8118D225A1DE0B005F6084 /* TKSlider.m */; };
 		3F8118DE25A1DE0B005F6084 /* TKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8118D725A1DE0B005F6084 /* TKAlertView.m */; };
@@ -42,6 +46,13 @@
 		3F18230825A0B59500C2F574 /* NSObject+A.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+A.m"; sourceTree = "<group>"; };
 		3F18230A25A0B5A000C2F574 /* NSObject+B.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+B.h"; sourceTree = "<group>"; };
 		3F18230B25A0B5A000C2F574 /* NSObject+B.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+B.m"; sourceTree = "<group>"; };
+		3F48921825AC2C9B006AF5C8 /* TKDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKDatePickerView.xib; sourceTree = "<group>"; };
+		3F48921A25AC2CA3006AF5C8 /* TKDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDatePickerView.h; sourceTree = "<group>"; };
+		3F48921B25AC2CA9006AF5C8 /* TKDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDatePickerView.m; sourceTree = "<group>"; };
+		3F48921D25AC2CB0006AF5C8 /* TKSimplePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSimplePickerView.h; sourceTree = "<group>"; };
+		3F48921E25AC2CB5006AF5C8 /* TKSimplePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSimplePickerView.m; sourceTree = "<group>"; };
+		3F48922025AC2CBF006AF5C8 /* TKSimplePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKSimplePickerView.xib; sourceTree = "<group>"; };
+		3F48922225AC50CD006AF5C8 /* TKToolDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKToolDefine.h; sourceTree = "<group>"; };
 		3F8118C625A1C414005F6084 /* AlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		3F8118C725A1C414005F6084 /* AlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		3F8118D025A1DE0B005F6084 /* TKUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIKit.h; sourceTree = "<group>"; };
@@ -127,9 +138,23 @@
 			path = Photo;
 			sourceTree = "<group>";
 		};
+		3F48921725AC2C7D006AF5C8 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				3F48921D25AC2CB0006AF5C8 /* TKSimplePickerView.h */,
+				3F48921E25AC2CB5006AF5C8 /* TKSimplePickerView.m */,
+				3F48922025AC2CBF006AF5C8 /* TKSimplePickerView.xib */,
+				3F48921A25AC2CA3006AF5C8 /* TKDatePickerView.h */,
+				3F48921B25AC2CA9006AF5C8 /* TKDatePickerView.m */,
+				3F48921825AC2C9B006AF5C8 /* TKDatePickerView.xib */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		3F8118D125A1DE0B005F6084 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F48921725AC2C7D006AF5C8 /* Picker */,
 				3F9987C625A33EA9008E3479 /* Progress */,
 				3F9987C525A33E8D008E3479 /* Alert */,
 				3F8118D525A1DE0B005F6084 /* TKViewDefine.h */,
@@ -211,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				3F33996B25A4BE3C00F623AB /* Photo */,
+				3F48922225AC50CD006AF5C8 /* TKToolDefine.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -355,8 +381,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F48921925AC2C9B006AF5C8 /* TKDatePickerView.xib in Resources */,
 				3FD9F9AF259DAE230034B8D1 /* LaunchScreen.storyboard in Resources */,
 				3FD9F9AC259DAE230034B8D1 /* Assets.xcassets in Resources */,
+				3F48922125AC2CBF006AF5C8 /* TKSimplePickerView.xib in Resources */,
 				3F954E6025A1FA6400633D3F /* TKAlertView.xib in Resources */,
 				3FD9F9AA259DAE220034B8D1 /* Main.storyboard in Resources */,
 			);
@@ -429,10 +457,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD9F9CA259DB2600034B8D1 /* BaseViewViewController.m in Sources */,
+				3F48921F25AC2CB5006AF5C8 /* TKSimplePickerView.m in Sources */,
 				3FD9F9A7259DAE220034B8D1 /* ViewController.m in Sources */,
 				3FD9F9C3259DB20A0034B8D1 /* TableViewController.m in Sources */,
 				3FD9F9A1259DAE220034B8D1 /* AppDelegate.m in Sources */,
 				3F18230C25A0B5A000C2F574 /* NSObject+B.m in Sources */,
+				3F48921C25AC2CA9006AF5C8 /* TKDatePickerView.m in Sources */,
 				3F9987B125A3074E008E3479 /* TKKenBurnsView.m in Sources */,
 				3F9987CD25A34938008E3479 /* TKMBProgressHUD.m in Sources */,
 				3F18230925A0B59500C2F574 /* NSObject+A.m in Sources */,

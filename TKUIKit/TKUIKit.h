@@ -9,14 +9,15 @@
 #ifndef TKUIKit_h
 #define TKUIKit_h
 
-//三方库引用
-#import "TKUIImportSDK.h"
 
 //Core
 #import "TKUICoreDefine.h"
 
 //View
 #import "TKViewDefine.h"
+
+//Tool
+#import "TKToolDefine.h"
 
 
 

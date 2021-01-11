@@ -9,6 +9,8 @@
 #import "AlertViewController.h"
 #import "TKAlertController.h"
 #import "TKSystemPhotoPicker.h"
+#import "TKSimplePickerView.h"
+#import "TKDatePickerView.h"
 
 
 @interface AlertViewController ()
@@ -20,69 +22,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIColor *bgColor = [UIColor TKLightColor:UIColor.whiteColor darkColor:UIColor.blackColor];
+    self.view.backgroundColor = bgColor;
 }
 
 - (void)setupUI
 {
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn1.frame = CGRectMake(44, 120, 84, 44);
-    btn1.tag = 1;
-    [btn1 setTitleText:@"alert1"];
-    [btn1 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn1];
+    NSMutableArray *titleAry = @[].mutableCopy;
+    [titleAry addObject:@"alert1"];
+    [titleAry addObject:@"alert2"];
+    [titleAry addObject:@"alert sys"];
+    [titleAry addObject:@"alert sys dolag"];
+    [titleAry addObject:@"alert MB"];
+    [titleAry addObject:@"alert MB dolag"];
+    [titleAry addObject:@"photo 相册"];
+    [titleAry addObject:@"photo 相机"];
+    [titleAry addObject:@"SimplePicker"];
+    [titleAry addObject:@"DatePicker"];
     
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn2.frame = CGRectMake(244, 120, 84, 44);
-    btn2.tag = 2;
-    [btn2 setTitleText:@"alert2"];
-    [btn2 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn2];
+    NSInteger offX = 44;//244
+    NSInteger offY = 120;//+60
+    for (NSInteger i=0; i<titleAry.count; i++) {
+        offX = i%2==0?44:210;
+        NSInteger s = i/2;
+        offY = 100+s*60;
+        CGRect rect = CGRectMake(offX, offY, 112, 44);
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+        btn.frame = rect;
+        btn.tag = i+1;
+        [btn setTitleText:titleAry[i]];
+        [btn addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
+    }
     
-    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn3.frame = CGRectMake(44, 180, 84, 44);
-    btn3.tag = 3;
-    [btn3 setTitleText:@"alert sys"];
-    [btn3 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn3];
-    
-    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn4.frame = CGRectMake(244, 180, 84, 44);
-    btn4.tag = 4;
-    [btn4 setTitleText:@"alert sys"];
-    [btn4 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn4];
-    
-    UIButton *btn5 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn5.frame = CGRectMake(44, 240, 84, 44);
-    btn5.tag = 5;
-    [btn5 setTitleText:@"alert MB"];
-    [btn5 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn5];
-    
-    UIButton *btn6 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn6.frame = CGRectMake(244, 240, 84, 44);
-    btn6.tag = 6;
-    [btn6 setTitleText:@"alert MB"];
-    [btn6 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn6];
-    
-    UIButton *btn7 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn7.frame = CGRectMake(44, 300, 84, 44);
-    btn7.tag = 7;
-    [btn7 setTitleText:@"photo"];
-    [btn7 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn7];
-    
-    UIButton *btn8 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn8.frame = CGRectMake(244, 300, 84, 44);
-    btn8.tag = 8;
-    [btn8 setTitleText:@"photo 2"];
-    [btn8 addTarget:self action:@selector(btnAlertAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn8];
 }
 
 - (void)btnAlertAction:(UIButton *)btn
 {
+    WeakSelf
     switch (btn.tag) {
         case 1:
         {
@@ -150,7 +127,7 @@
                     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(150, 20, 100, 200)];
                     image.contentMode = UIViewContentModeScaleAspectFit;
                     image.image = value;
-                    [self.view addSubview:image];
+                    [weakSelf.view addSubview:image];
                 });
             };
         }
@@ -162,6 +139,21 @@
                 self.picker1.blockVideoDone = ^(id value) {
                     NSLog(@"resultImage:%@",value);
                 };        }
+            break;
+        case 9:{
+            TKSimplePickerView *picker = [[TKSimplePickerView alloc] init];
+            picker.defaultIndex = 4;
+            picker.dataAry = @[@"1111",@"22222",@"33333",@"444444",@"555555"];
+            picker.labTitle.text = @"Title";
+//            picker.defaultIndex = 4;
+            [picker show];
+        }
+            break;
+        case 10:{
+            TKDatePickerView *picker = [TKDatePickerView new];
+//            picker.labTitle.text = @"Title";
+            [picker show];
+        }
             break;
         default:
             break;
