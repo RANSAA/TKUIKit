@@ -47,6 +47,8 @@ s.subspec 'Core' do |ss|
     # ss.resources            = "#{name}/Core/*.bundle"
     ss.dependency 'TKBaseKit/TKSDKUniversal'
     ss.dependency 'TKBaseKit/TKSDKTool'
+    ss.dependency 'TKPermissionKit/Photo'
+    ss.dependency 'TKPermissionKit/Camera'
 
   end
 
