@@ -10,9 +10,11 @@
 #define TKUIImportSDK_h
 
 #import <TKSDKUniversal/TKSDKUniversal.h>
-#import <TKSDKTool/TKSDKTool.h>
-
+//#import <TKSDKTool/TKSDKTool.h>
+#import <MBProgressHUD.h>
 #import <TKPermissionPhoto.h>
 #import <TKPermissionCamera.h>
+
+
 
 #endif /* TKUIImportSDK_h */

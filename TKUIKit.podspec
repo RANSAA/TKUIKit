@@ -42,30 +42,36 @@ s.resource_bundles = {
 
 
 s.subspec 'Core' do |ss|
-    ss.source_files         = "#{name}/Core/#{file_source}" , "#{name}/Core/**/#{file_source}"
-    ss.public_header_files  = "#{name}/Core/#{file_header}" , "#{name}/Core/**/#{file_header}"
-    # ss.resources            = "#{name}/Core/*.bundle"
-    ss.dependency 'TKBaseKit/TKSDKUniversal'
-    ss.dependency 'TKBaseKit/TKSDKTool'
-    ss.dependency 'TKPermissionKit/Photo'
-    ss.dependency 'TKPermissionKit/Camera'
+  ss.source_files         = "#{name}/Core/#{file_source}" , "#{name}/Core/**/#{file_source}"
+  ss.public_header_files  = "#{name}/Core/#{file_header}" , "#{name}/Core/**/#{file_header}"
+  # ss.resources            = "#{name}/Core/*.bundle"
+  ss.dependency 'TKBaseKit/TKSDKUniversal'
+  # ss.dependency 'TKBaseKit/TKSDKTool'
+  ss.dependency 'TKPermissionKit/Photo'
+  ss.dependency 'TKPermissionKit/Camera'
+  ss.dependency 'MBProgressHUD'
+end
 
-  end
+s.subspec 'Anim' do |ss|
+  ss.source_files         = "#{name}/Anim/#{file_source}" , "#{name}/Anim/**/#{file_source}"
+  ss.public_header_files  = "#{name}/Anim/#{file_header}" , "#{name}/Anim/**/#{file_header}"
+end
 
- s.subspec 'View' do |ss|
-    ss.source_files         = "#{name}/View/#{file_source}","#{name}/View/**/#{file_source}"
-    ss.public_header_files  = "#{name}/View/#{file_header}","#{name}/View/**/#{file_header}"
-    ss.dependency "TKUIKit/Core"    #依赖
-    # ss.resource_bundles = {
-    #   'TKUIKit' => ["#{name}/View/**/*.{xib}"]#pod 编译后会生成TKUIKitBundle.bundle 文件
-    # }
- end
+s.subspec 'View' do |ss|
+  ss.source_files         = "#{name}/View/#{file_source}","#{name}/View/**/#{file_source}"
+  ss.public_header_files  = "#{name}/View/#{file_header}","#{name}/View/**/#{file_header}"
+  ss.dependency "TKUIKit/Core"    #依赖
+  ss.dependency "TKUIKit/Anim"    #依赖
+  # ss.resource_bundles = {
+  #   'TKUIKit' => ["#{name}/View/**/*.{xib}"]#pod 编译后会生成TKUIKitBundle.bundle 文件
+  # }
+end
 
-  s.subspec 'Tool' do |ss|
-    ss.source_files         = "#{name}/Tool/#{file_source}","#{name}/Tool/**/#{file_source}"
-    ss.public_header_files  = "#{name}/Tool/#{file_header}","#{name}/Tool/**/#{file_header}"
-    ss.dependency "TKUIKit/Core"    #依赖
- end
+s.subspec 'Tool' do |ss|
+  ss.source_files         = "#{name}/Tool/#{file_source}","#{name}/Tool/**/#{file_source}"
+  ss.public_header_files  = "#{name}/Tool/#{file_header}","#{name}/Tool/**/#{file_header}"
+  ss.dependency "TKUIKit/Core"    #依赖
+end
 
 
 end

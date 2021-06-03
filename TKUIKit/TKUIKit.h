@@ -19,6 +19,8 @@
 //Tool
 #import "TKToolDefine.h"
 
+//Anim
+#import "TKAnimDefine.h"
 
 
 #endif /* TKUIKit_h */
