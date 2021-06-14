@@ -1,6 +1,6 @@
 PODS:
   - MBProgressHUD (1.2.0)
-  - TKBaseKit/TKSDKUniversal (2.1.5)
+  - TKBaseKit/TKSDKUniversal (2.1.6)
   - TKPermissionKit/Camera (1.2.2):
     - TKPermissionKit/Public
   - TKPermissionKit/Photo (1.2.2):
@@ -21,9 +21,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  TKBaseKit: b5b1e4cb9203a76d1fd6605dc3cfcfea95e01b18
+  TKBaseKit: c26c39caca2f9a3e086ebbf0100e129479c7296c
   TKPermissionKit: 0386bebdaa9bc48dc03e82df8efbf247b41f93ee
 
 PODFILE CHECKSUM: f38167e638afcb20125c2ec7b87b3acb2e0b5173
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

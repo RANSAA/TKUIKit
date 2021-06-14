@@ -53,7 +53,6 @@
 		3F48921E25AC2CB5006AF5C8 /* TKSimplePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSimplePickerView.m; sourceTree = "<group>"; };
 		3F48922025AC2CBF006AF5C8 /* TKSimplePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKSimplePickerView.xib; sourceTree = "<group>"; };
 		3F48922225AC50CD006AF5C8 /* TKToolDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKToolDefine.h; sourceTree = "<group>"; };
-		3F5980A12668A7BE0057EA61 /* TKAnimDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAnimDefine.h; sourceTree = "<group>"; };
 		3F8118C625A1C414005F6084 /* AlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		3F8118C725A1C414005F6084 /* AlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		3F8118D025A1DE0B005F6084 /* TKUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKUIKit.h; sourceTree = "<group>"; };
@@ -70,9 +69,7 @@
 		3F9987AE25A3074E008E3479 /* UIView+General.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+General.m"; sourceTree = "<group>"; };
 		3F9987AF25A3074E008E3479 /* TKKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKenBurnsView.h; sourceTree = "<group>"; };
 		3F9987B025A3074E008E3479 /* UIView+General.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+General.h"; sourceTree = "<group>"; };
-		3F9987B425A3081C008E3479 /* TKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPoint.h; sourceTree = "<group>"; };
 		3F9987B525A3081C008E3479 /* TKSphereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSphereView.m; sourceTree = "<group>"; };
-		3F9987B625A3081C008E3479 /* TKMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMatrix.h; sourceTree = "<group>"; };
 		3F9987B725A3081C008E3479 /* TKSphereView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSphereView.h; sourceTree = "<group>"; };
 		3F9987BB25A308E6008E3479 /* TKUICoreDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUICoreDefine.h; sourceTree = "<group>"; };
 		3F9987BC25A30FD6008E3479 /* TKAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAlertController.h; sourceTree = "<group>"; };
@@ -87,6 +84,9 @@
 		3F9987CC25A34938008E3479 /* TKMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKMBProgressHUD.m; sourceTree = "<group>"; };
 		3F9987CF25A353C0008E3479 /* TKSystemPhotoPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKSystemPhotoPicker.h; sourceTree = "<group>"; };
 		3F9987D025A353C0008E3479 /* TKSystemPhotoPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKSystemPhotoPicker.m; sourceTree = "<group>"; };
+		3FCBE05E2668C348004E848D /* TKMatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKMatrix.h; sourceTree = "<group>"; };
+		3FCBE05F2668C36F004E848D /* TKAnimDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAnimDefine.h; sourceTree = "<group>"; };
+		3FCBE0602668C396004E848D /* TKPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKPoint.h; sourceTree = "<group>"; };
 		3FD9F99C259DAE220034B8D1 /* TKUIKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKUIKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9F99F259DAE220034B8D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FD9F9A0259DAE220034B8D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				3F9987C725A348C9008E3479 /* TKAnimation */,
 				3F9987AC25A3074E008E3479 /* TKKenBurnsView */,
 				3F9987B325A3081C008E3479 /* TKSphereTagCloud */,
-				3F5980A12668A7BE0057EA61 /* TKAnimDefine.h */,
+				3FCBE05F2668C36F004E848D /* TKAnimDefine.h */,
 			);
 			path = Anim;
 			sourceTree = "<group>";
@@ -199,8 +199,8 @@
 		3F9987B325A3081C008E3479 /* TKSphereTagCloud */ = {
 			isa = PBXGroup;
 			children = (
-				3F9987B625A3081C008E3479 /* TKMatrix.h */,
-				3F9987B425A3081C008E3479 /* TKPoint.h */,
+				3FCBE05E2668C348004E848D /* TKMatrix.h */,
+				3FCBE0602668C396004E848D /* TKPoint.h */,
 				3F9987B725A3081C008E3479 /* TKSphereView.h */,
 				3F9987B525A3081C008E3479 /* TKSphereView.m */,
 			);
@@ -614,8 +614,10 @@
 			baseConfigurationReference = A3A9BD032BA5E4151339BBFB /* Pods-TKUIKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = TKUIKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -634,6 +636,7 @@
 			baseConfigurationReference = 2E2F947C2C367C39646F4D22 /* Pods-TKUIKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";

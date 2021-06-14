@@ -1,8 +1,8 @@
 //
-//  TKViewDefine.h
+//  TKAnimDefine.h
 //  TKUIKitDemo
 //
-//  Created by PC on 2021/1/3.
+//  Created by PC on 2021/6/3.
 //  Copyright © 2021 芮淼一线. All rights reserved.
 //
 

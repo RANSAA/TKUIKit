@@ -1,13 +1,14 @@
 //
 //  TKMatrix.h
-//  sphereTagCloud
+//  TKUIKitDemo
 //
-//  Created by Xinbao Dong on 14/8/31.
-//  Copyright (c) 2014年 Xinbao Dong. All rights reserved.
+//  Created by PC on 2021/6/3.
+//  Copyright © 2021 芮淼一线. All rights reserved.
 //
 
-#ifndef sphereTagCloud_TKMatrix_h
-#define sphereTagCloud_TKMatrix_h
+#ifndef TKMatrix_h
+#define TKMatrix_h
+
 
 #import "TKPoint.h"
 
@@ -28,7 +29,7 @@ static TKMatrix TKMatrixMake(NSInteger column, NSInteger row) {
             matrix.matrix[i][j] = 0;
         }
     }
-    
+
     return matrix;
 }
 
@@ -61,12 +62,12 @@ static TKPoint TKPointMakeRotation(TKPoint point, TKPoint direction, CGFloat ang
     if (angle == 0) {
         return point;
     }
-    
+
     CGFloat temp2[1][4] = {point.x, point.y, point.z, 1};
 //    TKMatrix pointM = TKMatrixMakeFromArray(1, 4, *temp2);
-    
+
     TKMatrix result = TKMatrixMakeFromArray(1, 4, *temp2);
-    
+
     if (direction.z * direction.z + direction.y * direction.y != 0) {
         CGFloat cos1 = direction.z / sqrt(direction.z * direction.z + direction.y * direction.y);
         CGFloat sin1 = direction.y / sqrt(direction.z * direction.z + direction.y * direction.y);
@@ -74,7 +75,7 @@ static TKPoint TKPointMakeRotation(TKPoint point, TKPoint direction, CGFloat ang
         TKMatrix m1 = TKMatrixMakeFromArray(4, 4, *t1);
         result = TKMatrixMutiply(result, m1);
     }
-    
+
     if (direction.x * direction.x + direction.y * direction.y + direction.z * direction.z != 0) {
         CGFloat cos2 = sqrt(direction.y * direction.y + direction.z * direction.z) / sqrt(direction.x * direction.x + direction.y * direction.y + direction.z * direction.z);
         CGFloat sin2 = -direction.x / sqrt(direction.x * direction.x + direction.y * direction.y + direction.z * direction.z);
@@ -82,13 +83,13 @@ static TKPoint TKPointMakeRotation(TKPoint point, TKPoint direction, CGFloat ang
         TKMatrix m2 = TKMatrixMakeFromArray(4, 4, *t2);
         result = TKMatrixMutiply(result, m2);
     }
-    
+
     CGFloat cos3 = cos(angle);
     CGFloat sin3 = sin(angle);
     CGFloat t3[4][4] = {{cos3, sin3, 0, 0}, {-sin3, cos3, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
     TKMatrix m3 = TKMatrixMakeFromArray(4, 4, *t3);
     result = TKMatrixMutiply(result, m3);
-    
+
     if (direction.x * direction.x + direction.y * direction.y + direction.z * direction.z != 0) {
         CGFloat cos2 = sqrt(direction.y * direction.y + direction.z * direction.z) / sqrt(direction.x * direction.x + direction.y * direction.y + direction.z * direction.z);
         CGFloat sin2 = -direction.x / sqrt(direction.x * direction.x + direction.y * direction.y + direction.z * direction.z);
@@ -96,7 +97,7 @@ static TKPoint TKPointMakeRotation(TKPoint point, TKPoint direction, CGFloat ang
         TKMatrix m2_ = TKMatrixMakeFromArray(4, 4, *t2_);
         result = TKMatrixMutiply(result, m2_);
     }
-    
+
     if (direction.z * direction.z + direction.y * direction.y != 0) {
         CGFloat cos1 = direction.z / sqrt(direction.z * direction.z + direction.y * direction.y);
         CGFloat sin1 = direction.y / sqrt(direction.z * direction.z + direction.y * direction.y);
@@ -104,23 +105,11 @@ static TKPoint TKPointMakeRotation(TKPoint point, TKPoint direction, CGFloat ang
         TKMatrix m1_ = TKMatrixMakeFromArray(4, 4, *t1_);
         result = TKMatrixMutiply(result, m1_);
     }
-    
+
     TKPoint resultPoint = TKPointMake(result.matrix[0][0], result.matrix[0][1], result.matrix[0][2]);
-    
+
     return resultPoint;
 }
 
-#endif
 
-
-
-
-
-
-
-
-
-
-
-
-
+#endif /* TKMatrix_h */

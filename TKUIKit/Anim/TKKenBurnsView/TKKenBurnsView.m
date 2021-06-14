@@ -24,6 +24,8 @@
 
 #import "TKKenBurnsView.h"
 #include <stdlib.h>
+#import "UIView+General.h"
+
 
 #define enlargeRatio 1.2
 #define imageBufer 3

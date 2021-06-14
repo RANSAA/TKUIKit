@@ -7,7 +7,9 @@
 //
 
 #import "TKSphereView.h"
+//#import "TKPoint.h"
 #import "TKMatrix.h"
+
 
 @interface TKSphereView() <UIGestureRecognizerDelegate>
 

@@ -1,13 +1,13 @@
 //
 //  TKPoint.h
-//  sphereTagCloud
+//  TKUIKitDemo
 //
-//  Created by Xinbao Dong on 14/8/31.
-//  Copyright (c) 2014年 Xinbao Dong. All rights reserved.
+//  Created by PC on 2021/6/3.
+//  Copyright © 2021 芮淼一线. All rights reserved.
 //
 
-#ifndef sphereTagCloud_TKPoint_h
-#define sphereTagCloud_TKPoint_h
+#ifndef TKPoint_h
+#define TKPoint_h
 
 struct TKPoint {
     CGFloat x;
@@ -26,4 +26,4 @@ TKPoint TKPointMake(CGFloat x, CGFloat y, CGFloat z) {
     return point;
 }
 
-#endif
+#endif /* TKPoint_h */
