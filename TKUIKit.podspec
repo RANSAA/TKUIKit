@@ -28,10 +28,6 @@ s.platform     = :ios, '9.0'  #单一平台
 #s.swift_version = '5.0'
 
 
-#第一个配置：处理Include of non-modular header inside framework module ：处理静态库在工程项目中，找不到三方库的问题
-# s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES"}#l
-s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
-
 
 
 s.frameworks = 'UIKit', 'Foundation', 'CoreServices'
