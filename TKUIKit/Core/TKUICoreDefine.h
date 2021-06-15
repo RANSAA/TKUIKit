@@ -16,9 +16,4 @@
 #import "TKUIBaseXib.h"
 
 
-//#import "TKAnimation.h"
-//#import "TKSphereView.h"
-//#import "TKKenBurnsView.h"
-
-
 #endif /* TKUICoreDefine_h */

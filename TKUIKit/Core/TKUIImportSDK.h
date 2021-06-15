@@ -11,9 +11,22 @@
 
 #import <TKSDKUniversal/TKSDKUniversal.h>
 //#import <TKSDKTool/TKSDKTool.h>
-#import <MBProgressHUD.h>
-#import <TKPermissionPhoto.h>
-#import <TKPermissionCamera.h>
+
+
+#if __has_include(<MBProgressHUD/MBProgressHUD.h>)
+#import <MBProgressHUD/MBProgressHUD.h>
+#else
+#import "MBProgressHUD.h"
+#endif
+
+
+#if __has_include(<TKPermissionKit/TKPermissionPhoto.h>)
+#import <TKPermissionKit/TKPermissionPhoto.h>
+#import <TKPermissionKit/TKPermissionCamera.h>
+#else
+#import "TKPermissionPhoto.h"
+#import "TKPermissionCamera.h"
+#endif
 
 
 
