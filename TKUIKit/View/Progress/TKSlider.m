@@ -8,43 +8,129 @@
 
 #import "TKSlider.h"
 
-@interface TKSlider ()<UIGestureRecognizerDelegate>
-@property(nonatomic, strong)NSLayoutConstraint *layWidth;
-@property(nonatomic, assign, readonly)BOOL isCurrentThumbImage;//检查当前currentThumbImage是否是UIimage
-@end
 
-@implementation TKSlider
-
-//滑块的点击轴换位置--实际上是一个触摸方法
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self began];
-    if (_isClick) {
-        CGFloat min = self.minimumValue;
-        CGFloat max = self.maximumValue;
-        CGRect t = [self trackRectForBounds: [self bounds]];
-        //将点击位置转化到进度条的位置，并其值
-        CGFloat pointX = [[touches anyObject] locationInView: self].x;
-        CGFloat clickWidth = pointX-t.origin.x;
-        clickWidth = clickWidth<0.0?0.0:(clickWidth>t.size.width?t.size.width:clickWidth);
-        CGFloat v  = clickWidth/t.size.width*(max-min) + min;
-        [self setValue: v];
-        
-//        float v = [self minimumValue] + ([[touches anyObject] locationInView: self].x - t.origin.x - 4) * (([self maximumValue]-[self minimumValue]) / (t.size.width - 8));
-//        v = v>max?max:(v<min?min:v);
-//        [self setValue: v];
-        
-    }
-    [super touchesBegan: touches withEvent: event];
+@implementation TKSlider{
+    BOOL _isThumbImage ;//标记是否是使用image设置thumb
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+
+#pragma mark 添加缓冲条
+- (UIView *)bufferView
 {
-    [super touchesEnded:touches withEvent:event];
-    if (!_isClick) {
-        [self end];
+    if (!_bufferView) {
+        _bufferView = [[UIView alloc] init];
+        _bufferView.userInteractionEnabled = NO;
+        _bufferView.layer.cornerRadius = 1.5;
+        if (@available(iOS 13.0, *)) {
+            _bufferView.backgroundColor = UIColor.systemGray2Color;
+        } else {
+            _bufferView.backgroundColor = [UIColor colorWithRed:174/255.0 green:174/255.0 blue:178/255.0 alpha:1.0];
+        }
+        BOOL isElement = YES;
+        for (UIView *vi in self.subviews) {
+            if ([vi isKindOfClass:NSClassFromString(@"_UISlideriOSVisualElement")]) {
+                [vi insertSubview:_bufferView atIndex:0];
+                isElement = NO;
+                break;
+            }
+        }
+        if (isElement) {
+            [self insertSubview:_bufferView atIndex:0];
+        }
+    }
+    return _bufferView;;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (_bufferView) {
+        [self fixedBufferViewLevel];
+        [self updateBufferProgress];
     }
 }
 
+- (void)setBufferValue:(CGFloat)bufferValue
+{
+    _bufferValue = bufferValue<0?0:(bufferValue>1?1.0:bufferValue);
+    [self updateBufferProgress];
+}
+
+//更新缓存进度
+- (void)updateBufferProgress
+{
+    CGRect frame = [self trackRectForBounds: self.bounds];
+    frame.size.width *= _bufferValue;
+    self.bufferView.frame = frame;
+}
+
+//固定bufferView的层级
+- (void)fixedBufferViewLevel
+{
+    UIView *prentView = self.bufferView.superview;
+    NSArray *views = prentView.subviews;
+    views = [[views reverseObjectEnumerator] allObjects];
+    NSInteger index= 0;
+    for (id obj in views) {
+        index++;
+        if ([obj isKindOfClass:UIImageView.class]) {
+            break;
+        }
+    }
+    index = views.count-1-index-1;
+    index = index<0?0:index;
+    [prentView insertSubview:self.bufferView atIndex:index];
+}
+
+
+/** 创建带阴影的圆形/椭圆图片 */
++ (UIImage *)imageWithSize:(CGSize)size color:(UIColor *)color
+{
+    CGFloat shadowWidth = 6;
+    CGRect rect = (CGRect){{0,0},{size.width+shadowWidth,size.height+shadowWidth}};
+
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, UIScreen.mainScreen.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    CGContextAddEllipseInRect(context, rect);
+    UIColor *shawodColor = [UIColor.grayColor colorWithAlphaComponent:0.1];
+    CGContextSetFillColorWithColor(context, shawodColor.CGColor);
+    CGContextDrawPath(context, kCGPathEOFill);
+    CGContextAddEllipseInRect(context, CGRectMake((rect.size.width-size.width)/2.0,(rect.size.height-size.height)/2.0 , size.width, size.height));
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextDrawPath(context, kCGPathEOFill);
+
+//    CGContextFillRect(context, rect);
+//    CGContextFillEllipseInRect(context, rect);
+
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return image;
+}
+
+
+#pragma mark 状态设置
+
+
+- (void)setThumbImage:(UIImage *)thumbImage
+{
+    _thumbImage = thumbImage;
+    [self setThumbImage:thumbImage forState:UIControlStateNormal];
+    [self setThumbImage:thumbImage forState:UIControlStateHighlighted];
+}
+
+- (void)setThumbImage:(UIImage *)image forState:(UIControlState)state
+{
+    [super setThumbImage:image forState:state];
+    _isThumbImage = YES;
+}
+
+- (void)setThumbTintColor:(UIColor *)thumbTintColor
+{
+    [super setThumbTintColor:thumbTintColor];
+    _isThumbImage = NO;
+}
 
 /**
  实现thumb滑动到首尾时thumb中心点与首尾位置对齐
@@ -53,112 +139,93 @@
 {
     CGFloat offX = 4;
     CGFloat offY = 30;
-    if (self.isCurrentThumbImage) {
-        if (_centerThumb) {
-            offX = self.currentThumbImage.size.width;
+
+    if (_centerThumb) {
+        if (_isThumbImage) {
+            offX = self.currentThumbImage.size.width-4;
+            offY = self.currentThumbImage.size.height;
         }else{
-            offX  = 0;
+            offX = 30-4;
+            offY = 30;
         }
-        offY = self.currentThumbImage.size.height;
     }else{
-        if (_centerThumb) {
-            offX = offY;
+        if (_isThumbImage) {
+            offX = -4;//0
+            offY = self.currentThumbImage.size.height;
+        }else{
+            offX = 0;//4
+            offY = 30;
         }
     }
+
     rect.origin.x = rect.origin.x - offX/2.0 ;
     rect.size.width = rect.size.width + offX;
     return CGRectInset ([super thumbRectForBounds:bounds trackRect:rect value:value], offX/2.0 , offY/2.0);
 }
 
 
-- (BOOL)isCurrentThumbImage
-{
-    if (!self.currentThumbImage) {
-        return NO;
-    }else{
-        if ([self.currentThumbImage isMemberOfClass:NSClassFromString(@"_UIResizableImage")]) {
-            return NO;
-        }
-        return YES;;
-    }
-}
 
-
-#pragma mark action
-
+#pragma mark 点击区域
 - (void)setDelegate:(id<TKSilderDelegate>)delegate
 {
     _delegate = delegate;
-    if (_delegate) {
-        [self addGestureRecognizer];
+    if (delegate) {
+        [self addTargetEvents];
     }
-}
-
-- (void)addGestureRecognizer
-{
-    [self addTarget:self action:@selector(changeValueAction) forControlEvents:UIControlEventValueChanged];
-    [self addTarget:self action:@selector(touchUpAction) forControlEvents:UIControlEventTouchUpInside];
-    [self addTarget:self action:@selector(touchUpAction) forControlEvents:UIControlEventTouchUpOutside];
 }
 
 - (void)setIsClick:(BOOL)isClick
 {
     _isClick = isClick;
     if (_isClick) {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-        [self addGestureRecognizer:tap];
-        UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longAction:)];
-        [self addGestureRecognizer:longGes];
+        [self addTapGestureRecognizer];
     }
 }
 
-- (void)longAction:(UILongPressGestureRecognizer *)longGes
+
+- (void)addTargetEvents
 {
-    if (_isClick) {
-        if (longGes.state == UIGestureRecognizerStateEnded) {
-            [self clickAction];
-            [self end];
-        }
-    }
+    [self addTarget:self action:@selector(changeValueAction) forControlEvents:UIControlEventValueChanged];
+    [self addTarget:self action:@selector(touchUpAction) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(touchUpAction) forControlEvents:UIControlEventTouchUpOutside];
 }
 
-- (void)tapAction
+- (void)addTapGestureRecognizer
 {
-    if (_isClick) {
-        [self clickAction];
-        [self end];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickAction:)];
+    [self addGestureRecognizer:tap];
+}
+
+- (void)clickAction:(UITapGestureRecognizer *)gesture
+{
+    if (!_isClick) {
+        return;
     }
+
+    CGPoint point = [gesture locationInView:self];
+    //进度条的frame
+    CGRect trackRect = [self trackRectForBounds:self.bounds];
+
+    CGFloat maxWidth = trackRect.size.width;
+    CGFloat minX = trackRect.origin.x;
+    //转换到进度条实际有效宽度
+    CGFloat clickWidth = point.x<minX?0:(point.x>(maxWidth+minX)?maxWidth:(point.x-minX));
+    CGFloat scale = clickWidth/maxWidth;
+    CGFloat v  = scale*((self.maximumValue-self.minimumValue)) + self.minimumValue;
+    [self setValue:v];
+
+//    NSLog(@"TKSlider -> t:%@",NSStringFromCGRect(trackRect));
+//    NSLog(@"TKSlider -> point.x:%f",point.x);
+//    NSLog(@"TKSlider -> clickWidth:%f",clickWidth);
+
+
+    [self changeValueAction];
+    [self end];
 }
 
 - (void)touchUpAction
 {
-    [self clickAction];
-    if (_isClick) {
-        [self end];
-    }
-}
-
-
-- (void)began
-{
-    if ([self.delegate respondsToSelector:@selector(TKSliderTouchBegan:)]) {
-        [self.delegate TKSliderTouchBegan:self];
-    }
-}
-
-- (void)end
-{
-    if ([self.delegate respondsToSelector:@selector(TKSliderTouchEnd:)]) {
-        [self.delegate TKSliderTouchEnd:self];
-    }
-}
-
-- (void)clickAction
-{
-    [self changeValueAction];
-    if ([self.delegate respondsToSelector:@selector(TKSlider:clickedValue:)]) {
-        [self.delegate TKSlider:self clickedValue:self.value];
-    }
+    [self end];
 }
 
 - (void)changeValueAction
@@ -168,67 +235,13 @@
     }
 }
 
-#pragma mark 添加缓冲条
-- (UIView *)bufferView
+- (void)end
 {
-    if (!_bufferView) {
-        _bufferView = [[UIView alloc] init];
-        _bufferView.userInteractionEnabled = NO;
-        if (@available(iOS 13.0, *)) {
-            _bufferView.backgroundColor = UIColor.systemGray2Color;
-        } else {
-            _bufferView.backgroundColor = [UIColor colorWithRed:174/255.0 green:174/255.0 blue:178/255.0 alpha:1.0];
-        }
-        _bufferView.tag = 9527;
-        [self insertSubview:_bufferView atIndex:0];
-    }
-    return _bufferView;;
-}
-
-- (void)setupBufferView
-{
-    if (_showBufferView) {
-        [self updateBufferViewFrame];
-        [self fixedBufferViewLocation];
+    if ([self.delegate respondsToSelector:@selector(TKSlider:endValue:)]) {
+        [self.delegate TKSlider:self endValue:self.value];
     }
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    [self setupBufferView];
-}
-
-- (void)setBufferValue:(CGFloat)bufferValue
-{
-    _bufferValue = bufferValue;
-    [self updateBufferViewFrame];
-}
-
-- (void)updateBufferViewFrame
-{
-    CGFloat s = _bufferValue/(self.maximumValue-self.minimumValue);
-    s = s<0.0?0.0:(s>1.0?1.0:s);
-    CGRect frame = [self trackRectForBounds: [self bounds]];
-    frame.size.width *= s;
-    _bufferView.frame = frame;
-}
-
-#pragma mark 固定_bufferView的层级
-- (void)fixedBufferViewLocation
-{
-    if (_bufferView.tag == 9527) {
-        NSInteger index = 0;
-        NSArray *views = self.subviews;
-        for (UIView *vi in views) {
-            if ([vi isMemberOfClass:UIImageView.class]) {
-                index++;
-            }
-        }
-        _bufferView.tag = 0;
-        [self insertSubview:_bufferView atIndex:index];
-    }
-}
 
 
 @end

@@ -22,31 +22,30 @@ NS_ASSUME_NONNULL_BEGIN
 @class TKSlider;
 @protocol TKSilderDelegate <NSObject>
 @optional
-/** slider.value发生变化回调*/
+/** slider操作结束时回调 */
+- (void)TKSlider:(TKSlider *)slider endValue:(CGFloat)value;
+/** slider value发生变化时回调 */
 - (void)TKSlider:(TKSlider *)slider changedValue:(CGFloat)value;
-/** slider点击或者滑动结束时回调*/
-- (void)TKSlider:(TKSlider *)slider clickedValue:(CGFloat)value;
-/** 开始点击或者滑动slider*/
-- (void)TKSliderTouchBegan:(TKSlider *)slider;
-/** 结束点击或者滑动slider */
-- (void)TKSliderTouchEnd:(TKSlider *)slider;
 
 @end
 
 @interface TKSlider : UISlider
-/** 缓冲条,默认不显示 */
-@property (nonatomic, strong) UIView *bufferView;
-/** 是否显示缓冲条，默认不显示 */
-@property (nonatomic, assign) BOOL showBufferView;
-/** bufferView的值，范围:slider.min ~ slider.max */
-@property (nonatomic, assign) CGFloat bufferValue;
 
+/** 与thumbTintColor 互斥*/
+@property (nonatomic, strong) UIImage *thumbImage;
 /** thumb滑动到首尾时，thumb的中心是否与首尾边对齐 */
 @property (nonatomic, assign) BOOL centerThumb;
-
+/** 缓冲条,默认不显示 */
+@property (nonatomic, strong) UIView *bufferView;
+/** 缓冲条的值，范围:0 ~ 1.0 */
+@property (nonatomic, assign) CGFloat bufferValue;
 /** 是否允许点击 */
 @property (nonatomic, assign) BOOL isClick;
 @property (nonatomic, weak) id<TKSilderDelegate> delegate;
+
+
+/** 创建带阴影的圆形/椭圆图片 */
++ (UIImage *)imageWithSize:(CGSize)size color:(UIColor *)color;
 
 @end
 

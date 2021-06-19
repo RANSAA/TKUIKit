@@ -1,6 +1,6 @@
 PODS:
   - MBProgressHUD (1.2.0)
-  - TKBaseKit/TKSDKUniversal (2.1.6)
+  - TKBaseKit/TKSDKUniversal (2.1.7)
   - TKPermissionKit/Camera (1.2.2):
     - TKPermissionKit/Public
   - TKPermissionKit/Photo (1.2.2):
@@ -9,21 +9,24 @@ PODS:
 
 DEPENDENCIES:
   - MBProgressHUD
-  - TKBaseKit/TKSDKUniversal
+  - TKBaseKit/TKSDKUniversal (from `/Users/D/Remote/TKBaseKit`)
   - TKPermissionKit/Camera
   - TKPermissionKit/Photo
 
 SPEC REPOS:
   trunk:
     - MBProgressHUD
-    - TKBaseKit
     - TKPermissionKit
+
+EXTERNAL SOURCES:
+  TKBaseKit:
+    :path: "/Users/D/Remote/TKBaseKit"
 
 SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  TKBaseKit: c26c39caca2f9a3e086ebbf0100e129479c7296c
+  TKBaseKit: 1da0e7f669a3ceb03ac898cfc93bf241c3a5aef0
   TKPermissionKit: 0386bebdaa9bc48dc03e82df8efbf247b41f93ee
 
-PODFILE CHECKSUM: f38167e638afcb20125c2ec7b87b3acb2e0b5173
+PODFILE CHECKSUM: ce86cd3496daf2bf4dc93a54c6e1dd5be18e989c
 
 COCOAPODS: 1.10.1

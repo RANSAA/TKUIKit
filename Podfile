@@ -11,13 +11,14 @@ target 'TKUIKitDemo' do
   # Pods for TKUIKitDemo
 
 #  pod 'TKBaseKit', :path => "/Users/D/Remote/TKBaseKit"
+  pod 'TKBaseKit/TKSDKUniversal', :path => "/Users/D/Remote/TKBaseKit"
 #  pod 'TKPermissionKit/Photo' , :path => "/Users/D/Remote/TKPermissionKit"
 #  pod 'TKPermissionKit/Camera' , :path => "/Users/D/Remote/TKPermissionKit"
 
 
 
 #  pod 'TKBaseKit/TKSDKTool'
-  pod 'TKBaseKit/TKSDKUniversal'
+#  pod 'TKBaseKit/TKSDKUniversal'
   pod 'MBProgressHUD'
 
   pod 'TKPermissionKit/Photo'                 #相册

@@ -19,54 +19,54 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)dealloc
+{
+    NSLog(@"SilderViewController");
+}
 
 - (void)setupUI
 {
-    UIImage *image1 = [UIImage TKCreateSquareWithColor:UIColor.orangeColor size:CGSizeMake(15, 15) alpha:1.0];
+    UIImage *image1 = [UIImage TKCreateSquareWithColor:UIColor.orangeColor size:CGSizeMake(15*2, 15*2) alpha:1.0];
     UIImage *image2 = [UIImage TKCreateSquareWithColor:UIColor.purpleColor size:CGSizeMake(15, 15) alpha:1.0];
     UIImage *image3 = [UIImage TKCreateCircularWithColor:UIColor.redColor size:CGSizeMake(27, 27) alpha:1.0];
 
-    
-    self.slider = [[TKSlider alloc] initWithFrame:CGRectMake(40, 248, 300, 60)];
-    self.slider.delegate = self;
+    //system
+    UISlider *sysSlider = [[UISlider alloc] initWithFrame:CGRectMake(40, 60, 300, 60)];
+//    sysSlider.backgroundColor = UIColor.grayColor;
+    [self.view addSubview:sysSlider];
+
+
+
+    self.slider = [[TKSlider alloc] initWithFrame:CGRectMake(40, 130, 300, 60)];
     self.slider.tag = 1;
+    self.slider.delegate = self;
     self.slider.backgroundColor = UIColor.grayColor;
     self.slider.minimumTrackTintColor = UIColor.redColor;
     self.slider.maximumTrackTintColor = UIColor.greenColor;
     self.slider.minimumValue = 0;
     self.slider.maximumValue = 50;
     [self.view addSubview:self.slider];
-    self.slider.centerThumb = YES;
+//    self.slider.centerThumb = YES;
     self.slider.isClick = YES;
-    self.slider.showBufferView = YES;
-    self.slider.bufferValue = 20;
-    
-//    self.slider.maximumValueImage = image2;
-//      self.slider.minimumValueImage = image1;
+    self.slider.bufferValue = 0.2;
     self.slider.bufferView.backgroundColor = UIColor.purpleColor;
 
 
-    self.slider.thumbTintColor = UIColor.orangeColor;
 
-//    image3 = [UIImage new];
-//    [self.slider setThumbImage:image3 forState:UIControlStateNormal];
-//    [self.slider setThumbImage:image3 forState:UIControlStateHighlighted];
 
-  
-
-    
-
-//    UISlider *slider1 = [[UISlider alloc] initWithFrame:CGRectMake(40, 396, 300, 60)];
-//    slider1.backgroundColor = UIColor.grayColor;
-//    slider1.minimumTrackTintColor = UIColor.redColor;
-//    slider1.maximumTrackTintColor = UIColor.greenColor;
-//    slider1.thumbTintColor = UIColor.orangeColor;
-//    [self.view addSubview:slider1];
-//
-//    slider1.thumbTintColor = UIColor.orangeColor;
-
-//    [slider1 setThumbImage:image3 forState:UIControlStateNormal];
-//    [slider1 setThumbImage:image3 forState:UIControlStateHighlighted];
+    TKSlider *slider0 = [[TKSlider alloc] initWithFrame:CGRectMake(40, 210, 300, 60)];
+    slider0.delegate = self;
+    slider0.backgroundColor = UIColor.grayColor;
+    slider0.minimumTrackTintColor = UIColor.redColor;
+    slider0.maximumTrackTintColor = UIColor.greenColor;
+    slider0.minimumValue = 0;
+    slider0.maximumValue = 50;
+    [self.view addSubview:slider0];
+    slider0.isClick = YES;
+    slider0.bufferValue = 0.2;
+    slider0.maximumValueImage = image1;
+    slider0.minimumValueImage = image3;
+    slider0.bufferView.backgroundColor = UIColor.purpleColor;
     
 
     
@@ -74,7 +74,8 @@
 
 
     
-    TKSlider *slider1 = [[TKSlider alloc] initWithFrame:CGRectMake(40, 396, 300, 60)];
+    TKSlider *slider1 = [[TKSlider alloc] initWithFrame:CGRectMake(40, 280, 300, 60)];
+    slider1.tag = 2;
     slider1.backgroundColor = UIColor.grayColor;
     slider1.minimumTrackTintColor = UIColor.redColor;
     slider1.maximumTrackTintColor = UIColor.greenColor;
@@ -82,12 +83,15 @@
     [self.view addSubview:slider1];
 //    slider1.minimumValueImage = image1;
 //    slider1.maximumValueImage = image2;
+//    slider1.thumbImage = image1;
+    slider1.thumbImage = [TKSlider imageWithSize:CGSizeMake(27, 27) color:UIColor.whiteColor];
     slider1.minimumValue = 0;
     slider1.maximumValue = 50;
     slider1.delegate = self;
-    slider1.showBufferView = YES;
+//    slider1.showBufferView = YES;
     slider1.bufferValue = 0.50;
     slider1.isClick = YES;
+    slider1.centerThumb = YES;
 
 
 
@@ -96,36 +100,19 @@
     
 }
 
-- (void)TKSlider:(TKSlider *)slider clickedValue:(CGFloat)value
-{
-    NSLog(@"clickedValue:%.2f",value);
-}
 
 - (void)TKSlider:(TKSlider *)slider changedValue:(CGFloat)value
 {
     NSLog(@"changedValue:%.2f",value);
-    self.slider.bufferValue = value+5;
+    self.slider.bufferValue = value/(slider.maximumValue-slider.minimumValue)+0.05;
 }
 
-- (void)TKSliderTouchBegan:(TKSlider *)slider
+- (void)TKSlider:(TKSlider *)slider endValue:(CGFloat)value
 {
-    NSLog(@"开始。。。。。");
-}
-
-- (void)TKSliderTouchEnd:(TKSlider *)slider
-{
-    NSLog(@"结束。。。。。。");
+    NSLog(@"endValue:%.2f",value);
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
