@@ -68,7 +68,7 @@
 - (IBAction)btnDoneAction:(UIButton *)sender {
     [sender setViewUserInteractionEnabledCancel];
     [self hiddenView];
-    if (self.selectedRow != -1) {
+    if (self.selectedRow != -1 && self.selectedRow < self.dataAry.count) {
         NSString *title = self.dataAry[self.selectedRow];
         if ([self.delegate respondsToSelector:@selector(TKSimplePickerView:didAtRow:)]) {
             [self.delegate TKSimplePickerView:self didAtRow:self.selectedRow];
@@ -90,6 +90,13 @@
 {
     _dataAry = dataAry;
     [self.pickerView reloadAllComponents];
+}
+
+- (void)setDefaultIndex:(NSInteger)defaultIndex
+{
+    if (defaultIndex >= 0) {
+        _defaultIndex = defaultIndex;
+    }
 }
 
 //默认选中row
