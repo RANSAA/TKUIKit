@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *layShowViewLeftSpace;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *layShowViewRigthSpace;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *layTitleHeight;
 
 @end
 
@@ -23,12 +24,6 @@
 
 - (void)instanceSubView
 {
-    CGFloat space = 44*Screen_Width/375.0;//38
-    if (![UIDevice TK_isDeviceWithInterfaceIphone]) {
-        space = 98*Screen_Width/375.0;
-    }
-    self.layShowViewLeftSpace.constant = space;
-    self.layShowViewRigthSpace.constant = space;
     [self.showView setLayerCornerRadiusWith:10];
     [self.btnDone addTarget:self action:@selector(btnDoneAction) forControlEvents:UIControlEventTouchUpInside];
     [self.btnOK addTarget:self action:@selector(btnDoneAction) forControlEvents:UIControlEventTouchUpInside];
@@ -77,6 +72,8 @@
     layLeft.active = YES;
     layBottom.active = YES;
     layRight.active = YES;
+
+    [self updateTitleHeight];
 }
 
 
@@ -156,7 +153,45 @@
     return alertView;
 }
 
+#pragma mark 更新title height
+- (void)updateTitleHeight
+{
+    if (self.labTitle.text.length<1) {
+        self.layTitleHeight.constant = 36-16-8;
+    }else{
+        self.layTitleHeight.constant = 36;
+    }
+}
 
+
+- (void)updateShowMarginConstraints
+{
+//    CGFloat n = Screen_Width/375.0;
+//    CGFloat space = 48*n;//46
+//    if (![UIDevice TK_isDeviceWithInterfaceIphone]) {//iPad
+//        space = 98*n;
+//    }
+
+    CGFloat min = [self min:Screen_Width y:Screen_Height];
+    //计算show的宽度
+    CGFloat width = min - 2*(48*min/375.0);//default margin 48
+    width = min<375?226:284;
+    CGFloat space = (Screen_Width - width)/2.0;
+
+    self.layShowViewLeftSpace.constant = space;
+    self.layShowViewRigthSpace.constant = space;
+}
+
+- (CGFloat)min:(CGFloat)x y:(CGFloat)y
+{
+    return x<y?x:y;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self updateShowMarginConstraints];
+}
 
 #pragma mark ----------设置-------------
 /** 设置提示标题的文字  */
@@ -165,6 +200,7 @@
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         weakSelf.labTitle.text = text;
+        [weakSelf updateTitleHeight];
     });
 }
 

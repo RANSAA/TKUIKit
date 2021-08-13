@@ -618,7 +618,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
 				EXCLUDED_ARCHS = "$(inherited)";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = TKUIKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -641,7 +640,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
 				EXCLUDED_ARCHS = "$(inherited)";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = TKUIKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

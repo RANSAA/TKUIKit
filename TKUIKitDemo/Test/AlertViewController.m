@@ -63,18 +63,18 @@
     switch (btn.tag) {
         case 1:
         {
-            TKAlertView *alert = [TKAlertView TKAlertViewWithTitle:@"title" text:@"TKAlertViewWithTitle"];
+            TKAlertView *alert = [TKAlertView TKAlertViewWithTitle:@"Title" text:@"TKAlertViewWithTitle"];
             alert.blockDone = ^{
                NSLog(@"done..");
             };
             alert.blockCancel = ^{
                NSLog(@"cacnel...");
             };
-            [alert.btnDone setTitleText:@"Done"];
+            [alert.btnDone setTitleText:@"缺点"];
         }
             break;
         case 2:{
-            TKAlertView *alert = [TKAlertView TKAlertViewDialogWithTitle:@"Title" text:@"TK\nAlertView\nDialog\nWithTitle"];
+            TKAlertView *alert = [TKAlertView TKAlertViewDialogWithTitle:nil text:@"Msg"];
             alert.blockDone = ^{
                NSLog(@"done..");
             };
