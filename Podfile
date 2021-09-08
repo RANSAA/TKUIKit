@@ -21,8 +21,18 @@ target 'TKUIKitDemo' do
 #  pod 'TKBaseKit/TKSDKUniversal'
   pod 'MBProgressHUD'
 
-  pod 'TKPermissionKit/Photo'                 #相册
-  pod 'TKPermissionKit/Camera'               #相机
+  # pod 'TKPermissionKit/Photo'                 #相册
+  # pod 'TKPermissionKit/Camera'               #相机
+
+  pod 'TKPermissionKit/Photo'  , :path => "/Users/D/Remote/TKPermissionKit"
+  pod 'TKPermissionKit/Camera' , :path => "/Users/D/Remote/TKPermissionKit"
+
+
+
+    pod 'YYImage'
+  pod 'YYImage/WebP'
+  pod 'SDWebImage'
+
 
 
 end

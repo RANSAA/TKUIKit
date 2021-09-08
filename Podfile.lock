@@ -1,32 +1,48 @@
 PODS:
   - MBProgressHUD (1.2.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
   - TKBaseKit/TKSDKUniversal (2.1.9)
-  - TKPermissionKit/Camera (1.2.2):
+  - TKPermissionKit/Camera (1.2.3):
     - TKPermissionKit/Public
-  - TKPermissionKit/Photo (1.2.2):
+  - TKPermissionKit/Photo (1.2.3):
     - TKPermissionKit/Public
-  - TKPermissionKit/Public (1.2.2)
+  - TKPermissionKit/Public (1.2.3)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYImage/WebP (1.0.4):
+    - YYImage/Core
 
 DEPENDENCIES:
   - MBProgressHUD
+  - SDWebImage
   - TKBaseKit/TKSDKUniversal (from `/Users/D/Remote/TKBaseKit`)
-  - TKPermissionKit/Camera
-  - TKPermissionKit/Photo
+  - TKPermissionKit/Camera (from `/Users/D/Remote/TKPermissionKit`)
+  - TKPermissionKit/Photo (from `/Users/D/Remote/TKPermissionKit`)
+  - YYImage
+  - YYImage/WebP
 
 SPEC REPOS:
   trunk:
     - MBProgressHUD
-    - TKPermissionKit
+    - SDWebImage
+    - YYImage
 
 EXTERNAL SOURCES:
   TKBaseKit:
     :path: "/Users/D/Remote/TKBaseKit"
+  TKPermissionKit:
+    :path: "/Users/D/Remote/TKPermissionKit"
 
 SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   TKBaseKit: 085f74a535976c8e886116d1ef992ab296b52b36
-  TKPermissionKit: 0386bebdaa9bc48dc03e82df8efbf247b41f93ee
+  TKPermissionKit: 5cb9dfd100c4e8de9601202e2adfe9957c1f0b0f
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: ce86cd3496daf2bf4dc93a54c6e1dd5be18e989c
+PODFILE CHECKSUM: ad99bf3aa4dca665aec06dae6f22ac1c5c6edebb
 
 COCOAPODS: 1.10.1

@@ -103,19 +103,27 @@
            }
        }];
     }else{
-        [TKPermissionPhoto authWithAlert:YES completion:^(BOOL isAuth) {
-           if (isAuth) {
-               [self initImagePickerWithType:sourceType];
-           }
+        [TKPermissionPhoto authWithAlert:YES level:TKPhotoAccessLevelReadWrite completion:^(BOOL isAuth) {
+            if (isAuth) {
+                [self initImagePickerWithType:sourceType];
+            }
         }];
+
+    
+
+//        [TKPermissionPhoto authWithAlert:YES completion:^(BOOL isAuth) {
+//           if (isAuth) {
+//               [self initImagePickerWithType:sourceType];
+//           }
+//        }];
     }
 }
 
 - (void)initImagePickerWithType:(UIImagePickerControllerSourceType)sourceType
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_main_queue(), ^{
         self.imagePicker = [[UIImagePickerController alloc] init];
-        self.imagePicker.modalPresentationStyle = UIModalPresentationFullScreen; //UIModalPresentationOverFullScreen;
+        self.imagePicker.modalPresentationStyle = UIModalPresentationOverFullScreen; //UIModalPresentationFullScreen,UIModalPresentationOverFullScreen;
         self.imagePicker.delegate = self;
         self.imagePicker.allowsEditing = self.allowsEditing;
         self.imagePicker.sourceType = sourceType;
@@ -128,7 +136,7 @@
         }
         [self.tragetVC presentViewController:self.imagePicker animated:YES completion:nil];
         [self setNavigationStyleWith:self.imagePicker.navigationBar];
-    });
+//    });
 }
 
 - (void)setAllowsEditing:(BOOL)allowsEditing

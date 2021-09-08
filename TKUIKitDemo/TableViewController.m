@@ -8,7 +8,8 @@
 
 #import "TableViewController.h"
 #import "SilderViewController.h"
-#import "AlertViewController.h"
+#import "AlertTableViewController.h"
+
 
 
 
@@ -32,7 +33,7 @@
 {
     self.dataVC = @[].mutableCopy;
     [self.dataVC addObject:[SilderViewController createVC]];
-    [self.dataVC addObject:[AlertViewController createVC]];
+    [self.dataVC addObject:[AlertTableViewController createVC]];
     
 }
 

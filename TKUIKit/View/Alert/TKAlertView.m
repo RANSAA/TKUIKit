@@ -49,9 +49,9 @@
     [self.btnOK setTitleColor:doneColor];
     
     
-    self.btnOK.titleLabel.font = [UIFont systemFontOfSize:12.5];
-    self.btnDone.titleLabel.font = [UIFont systemFontOfSize:12.5];
-    self.btnCancel.titleLabel.font = [UIFont systemFontOfSize:12.5];
+    self.btnOK.titleLabel.font = [UIFont systemFontOfSize:13.5];
+    self.btnDone.titleLabel.font = [UIFont systemFontOfSize:13.5];
+    self.btnCancel.titleLabel.font = [UIFont systemFontOfSize:13.5];
     self.labTitle.font = [UIFont systemFontOfSize:13+8];
     self.labMsg.font = [UIFont systemFontOfSize:13.0];
 }
