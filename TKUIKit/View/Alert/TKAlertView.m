@@ -30,18 +30,18 @@
     [self.btnCancel addTarget:self action:@selector(btnCancelAction) forControlEvents:UIControlEventTouchUpInside];
     
     //背景颜色配置
-    UIColor *bgColor = [UIColor TKLightColor:kRGBColor(68, 68, 70) darkColor:kRGBColor(54, 54, 56)];
-    bgColor = [UIColor TKLightColor:UIColor.whiteColor darkColor:kRGBColor(36, 36, 38)];
-    UIColor *lineColor = [UIColor TKLightColor:kHEXColor(@"E9E9E9") darkColor:kRGBColor(68, 68, 70)];
+    UIColor *bgColor = [UIColor colorWithLight:kRGBColor(68, 68, 70) dark:kRGBColor(54, 54, 56)];
+    bgColor = [UIColor colorWithLight:UIColor.whiteColor dark:kRGBColor(36, 36, 38)];
+    UIColor *lineColor = [UIColor colorWithLight:kHEXColor(@"E9E9E9") dark:kRGBColor(68, 68, 70)];
     self.showView.backgroundColor   = bgColor;
     self.bottomView.backgroundColor = lineColor;
     self.btnDone.backgroundColor    = bgColor;
     self.btnCancel.backgroundColor  = bgColor;
     self.btnOK.backgroundColor      = bgColor;
-    UIColor *titleColor  = [UIColor TKLightColor:UIColor.blackColor darkColor:kRGBColor(188, 188, 192)];
-    UIColor *msgColor    = [UIColor TKLightColor:UIColor.blackColor darkColor:UIColor.whiteColor];
-    UIColor *doneColor   = [UIColor TKLightColor:kRGBColor(68, 68, 70) darkColor:kRGBColor(188, 188, 192)];
-    UIColor *cancelColor = [UIColor TKLightColor:kRGBColor(68, 68, 70) darkColor:kRGBColor(188, 188, 192)];
+    UIColor *titleColor  = [UIColor colorWithLight:UIColor.blackColor dark:kRGBColor(188, 188, 192)];
+    UIColor *msgColor    = [UIColor colorWithLight:UIColor.blackColor dark:UIColor.whiteColor];
+    UIColor *doneColor   = [UIColor colorWithLight:kRGBColor(68, 68, 70) dark:kRGBColor(188, 188, 192)];
+    UIColor *cancelColor = [UIColor colorWithLight:kRGBColor(68, 68, 70) dark:kRGBColor(188, 188, 192)];
     self.labTitle.textColor = titleColor;
     self.labMsg.textColor   = msgColor;
     [self.btnDone setTitleColor:doneColor];
@@ -59,7 +59,7 @@
 - (void)show
 {
     UIView *fromView = appWin;
-    self.frame = Screen_Bounds;
+    self.frame = kScreenBounds;
     [fromView addSubview:self];
     [fromView.layer addAnimation:[TKAnimation TKAnimationGetFade] forKey:nil];
     
@@ -172,11 +172,11 @@
 //        space = 98*n;
 //    }
 
-    CGFloat min = [self min:Screen_Width y:Screen_Height];
+    CGFloat min = [self min:kScreenWidth y:kScreenHeight];
     //计算show的宽度
     CGFloat width = min - 2*(48*min/375.0);//default margin 48
     width = min<375?226:284;
-    CGFloat space = (Screen_Width - width)/2.0;
+    CGFloat space = (kScreenWidth - width)/2.0;
 
     self.layShowViewLeftSpace.constant = space;
     self.layShowViewRigthSpace.constant = space;

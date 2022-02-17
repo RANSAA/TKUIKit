@@ -17,6 +17,10 @@
     3。如果需要将照片上传可以使用YYImage对图片压缩
  */
 
+/**
+ 该文件基本上可以被弃用了，直接使用三方工具如:TZImagePickerController
+ */
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger,TKSystemPhotoPickerStyle){

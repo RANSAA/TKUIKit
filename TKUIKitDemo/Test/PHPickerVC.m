@@ -39,13 +39,13 @@ API_AVAILABLE(ios(14))
 
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     btn.frame = CGRectMake(100, 320, 100, 100);
-    [btn setText:@"openPHPicker"];
+    [btn setTitleText:@"openPHPicker"];
     [btn addTarget:self action:@selector(btnOpenPHPickerAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 
     UIButton *liveBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     liveBtn.frame = CGRectMake(100, 420, 100, 100);
-    [liveBtn setText:@"livePhoto"];
+    [btn setTitleText:@"livePhoto"];
     [liveBtn addTarget:self action:@selector(btnOpenLiveAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:liveBtn];
 
@@ -69,7 +69,11 @@ API_AVAILABLE(ios(14))
 
 - (void)btnOpenPHPickerAction
 {
-    [self setupPicker];
+    if(@available(iOS 14, *)){
+        [self setupPicker];
+    }else{
+        NSLog(@"PHPickerViewController 最低需求iOS 14");
+    }
 }
 
 - (void)btnOpenLiveAction

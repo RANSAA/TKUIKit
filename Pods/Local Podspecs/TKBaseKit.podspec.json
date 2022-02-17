@@ -1,6 +1,6 @@
 {
   "name": "TKBaseKit",
-  "version": "2.1.9",
+  "version": "2.2.0",
   "summary": "基础通用框架，以及一些工具和一些三方框架的二次封装！",
   "description": "TKBaseKit通用基础框架，包含：\n1.TKSDKUniversal  基础框架控制器与一些实用的工具类\n2.TKSDKTool       二次封装三方库的一些工具",
   "homepage": "https://github.com/RANSAA/TKBaseKit",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/RANSAA/TKBaseKit.git",
-    "tag": "v2.1.9"
+    "tag": "v2.2.0"
   },
   "requires_arc": true,
   "platforms": {
@@ -43,10 +43,10 @@
 
         ],
         "GTMBase64": [
-          "~> 1.0.1"
+
         ],
         "MJRefresh": [
-          "~> 3.6"
+
         ],
         "AFNetworking": [
           "~> 4.0"

@@ -61,15 +61,23 @@
 {
     NSInteger row = indexPath.row;
     UIViewController *vc = self.dataVC[row];
-//    vc = [SilderViewController createVC];
+//    UIViewController *vc = [SilderViewController createVC];
+//    UIViewController *vc = [UIViewController new];
 //    [self presentViewController:vc animated:YES completion:nil];
     
     vc.restorationIdentifier = @"VC-A";
     [self pushViewController:vc animated:YES];
+
+
     
 //    [self addChildViewController:vc];
 //    [self.view addSubview:vc.view];
 //    vc.view.frame = self.view.bounds;
+
+//    UIButton *vi = [UIButton buttonWithType:UIButtonTypeSystem];
+//    vi.frame =  CGRectMake(0, 0, 100, 100);
+//    vi.backgroundColor = UIColor.colorRandom;
+//    [self.view addSubview:vi];
     
 //    
 //    NSLog(@"[UIApplication sharedApplication].keyWindow.rootViewController");

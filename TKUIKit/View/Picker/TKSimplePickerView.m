@@ -23,10 +23,10 @@
     self.labTitle.text = nil;
     self.labTitle.font = [UIFont systemFontOfSize:16];
     
-    UIColor *titleColor  = [UIColor TKLightColor:UIColor.blackColor darkColor:kRGBColor(188, 188, 192)];
-    UIColor *backColor   = [UIColor TKLightColor:kRGBColor(68, 68, 70) darkColor:kRGBColor(188, 188, 192)];
-    UIColor *toolColor = [UIColor TKLightColor:kRGBColor(245, 245, 245) darkColor:kRGBColor(58, 58, 60)];
-    UIColor *pickerColor   = [UIColor TKLightColor:UIColor.whiteColor darkColor:kRGBColor(72, 72, 74)];
+    UIColor *titleColor  = [UIColor colorWithLight:UIColor.blackColor dark:kRGBColor(188, 188, 192)];
+    UIColor *backColor   = [UIColor colorWithLight:kRGBColor(68, 68, 70) dark:kRGBColor(188, 188, 192)];
+    UIColor *toolColor = [UIColor colorWithLight:kRGBColor(245, 245, 245) dark:kRGBColor(58, 58, 60)];
+    UIColor *pickerColor   = [UIColor colorWithLight:UIColor.whiteColor dark:kRGBColor(72, 72, 74)];
     self.pickerView.backgroundColor = pickerColor;
     self.toolView.backgroundColor = toolColor;
     self.labTitle.textColor = titleColor;
@@ -61,12 +61,12 @@
 }
 
 - (IBAction)btnCancelAction:(UIButton *)sender {
-    [sender setViewUserInteractionEnabledCancel];
+    [sender setAfterUserInteractionEnabled];
     [self hiddenView];
 }
 
 - (IBAction)btnDoneAction:(UIButton *)sender {
-    [sender setViewUserInteractionEnabledCancel];
+    [sender setAfterUserInteractionEnabled];
     [self hiddenView];
     if (self.selectedRow != -1 && self.selectedRow < self.dataAry.count) {
         NSString *title = self.dataAry[self.selectedRow];
@@ -128,7 +128,7 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    return Screen_Width;
+    return kScreenWidth;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component

@@ -16,6 +16,7 @@
 		3F8118DC25A1DE0B005F6084 /* TKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8118D225A1DE0B005F6084 /* TKSlider.m */; };
 		3F8118DE25A1DE0B005F6084 /* TKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8118D725A1DE0B005F6084 /* TKAlertView.m */; };
 		3F954E6025A1FA6400633D3F /* TKAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F954E5F25A1FA6400633D3F /* TKAlertView.xib */; };
+		3F9981BF27BE585800077D6B /* TKIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9981BE27BE585800077D6B /* TKIndicatorView.m */; };
 		3F9987AA25A30350008E3479 /* TKUIBaseXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9987A925A30350008E3479 /* TKUIBaseXib.m */; };
 		3F9987B125A3074E008E3479 /* TKKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9987AD25A3074E008E3479 /* TKKenBurnsView.m */; };
 		3F9987B225A3074E008E3479 /* UIView+General.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9987AE25A3074E008E3479 /* UIView+General.m */; };
@@ -61,6 +62,9 @@
 		3F8118D625A1DE0B005F6084 /* TKSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSlider.h; sourceTree = "<group>"; };
 		3F8118D725A1DE0B005F6084 /* TKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAlertView.m; sourceTree = "<group>"; };
 		3F954E5F25A1FA6400633D3F /* TKAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKAlertView.xib; sourceTree = "<group>"; };
+		3F9981AD27BE1DF400077D6B /* TKUIKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TKUIKitDemo.entitlements; sourceTree = "<group>"; };
+		3F9981BD27BE585700077D6B /* TKIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKIndicatorView.h; sourceTree = "<group>"; };
+		3F9981BE27BE585800077D6B /* TKIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKIndicatorView.m; sourceTree = "<group>"; };
 		3F9987A725A2FE17008E3479 /* TKUIImportSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUIImportSDK.h; sourceTree = "<group>"; };
 		3F9987A825A30350008E3479 /* TKUIBaseXib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKUIBaseXib.h; sourceTree = "<group>"; };
 		3F9987A925A30350008E3479 /* TKUIBaseXib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKUIBaseXib.m; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 			children = (
 				3F8118D625A1DE0B005F6084 /* TKSlider.h */,
 				3F8118D225A1DE0B005F6084 /* TKSlider.m */,
+				3F9981BD27BE585700077D6B /* TKIndicatorView.h */,
+				3F9981BE27BE585800077D6B /* TKIndicatorView.m */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 		3FD9F99E259DAE220034B8D1 /* TKUIKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3F9981AD27BE1DF400077D6B /* TKUIKitDemo.entitlements */,
 				3FD9F99F259DAE220034B8D1 /* AppDelegate.h */,
 				3FD9F9A0259DAE220034B8D1 /* AppDelegate.m */,
 				3FD9F9A2259DAE220034B8D1 /* SceneDelegate.h */,
@@ -478,6 +485,7 @@
 				3F9987AA25A30350008E3479 /* TKUIBaseXib.m in Sources */,
 				3F9987CA25A348C9008E3479 /* TKAnimation.m in Sources */,
 				3FA4FCDE26DBD47B00C0F796 /* PrewPhotosVC.m in Sources */,
+				3F9981BF27BE585800077D6B /* TKIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +629,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
+				CODE_SIGN_ENTITLEMENTS = TKUIKitDemo/TKUIKitDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
 				EXCLUDED_ARCHS = "$(inherited)";
@@ -633,6 +642,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sayaDev.TKUIKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -643,6 +653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
+				CODE_SIGN_ENTITLEMENTS = TKUIKitDemo/TKUIKitDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
 				EXCLUDED_ARCHS = "$(inherited)";
@@ -655,6 +666,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sayaDev.TKUIKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

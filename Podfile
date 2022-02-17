@@ -29,7 +29,7 @@ target 'TKUIKitDemo' do
 
 
 
-    pod 'YYImage'
+  pod 'YYImage'
   pod 'YYImage/WebP'
   pod 'SDWebImage'
 

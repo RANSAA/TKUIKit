@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIColor *bgColor = [UIColor TKLightColor:UIColor.whiteColor darkColor:UIColor.blackColor];
+    UIColor *bgColor = [UIColor colorWithLight:UIColor.whiteColor dark:UIColor.blackColor];
     self.view.backgroundColor = bgColor;
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
 }

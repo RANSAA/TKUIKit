@@ -13,14 +13,8 @@
 //获取视频预览图(0.0, 30)
 - (UIImage *)videoPreviewImage
 {
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:self.originalUrl options:nil];
-    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-    imageGenerator.appliesPreferredTrackTransform = YES;// 截图的时候调整到正确的方向
     CMTime time = CMTimeMakeWithSeconds(0.0, 30);// 1.0为截取视频1.0秒处的图片，30为每秒30帧
-    CGImageRef cgImage = [imageGenerator copyCGImageAtTime:time actualTime:nil error:nil];
-    UIImage *resultImage = [UIImage imageWithCGImage:cgImage];
-    CGImageRelease(cgImage);
-    return resultImage;
+    return  [self videoPreviewImageWith:time];
 }
 
 

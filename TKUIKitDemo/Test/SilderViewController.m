@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"SilderViewController viewDidLoad");
+    [self setupUI];
 }
 
 - (void)dealloc
@@ -31,13 +33,13 @@
     UIImage *image3 = [UIImage TKCreateCircularWithColor:UIColor.redColor size:CGSizeMake(27, 27) alpha:1.0];
 
     //system
-    UISlider *sysSlider = [[UISlider alloc] initWithFrame:CGRectMake(40, 60, 300, 60)];
+    UISlider *sysSlider = [[UISlider alloc] initWithFrame:CGRectMake(20, 60, 300, 60)];
 //    sysSlider.backgroundColor = UIColor.grayColor;
     [self.view addSubview:sysSlider];
 
 
 
-    self.slider = [[TKSlider alloc] initWithFrame:CGRectMake(40, 130, 300, 60)];
+    self.slider = [[TKSlider alloc] initWithFrame:CGRectMake(20, 130, 300, 60)];
     self.slider.tag = 1;
     self.slider.delegate = self;
     self.slider.backgroundColor = UIColor.grayColor;
@@ -52,9 +54,7 @@
     self.slider.bufferView.backgroundColor = UIColor.purpleColor;
 
 
-
-
-    TKSlider *slider0 = [[TKSlider alloc] initWithFrame:CGRectMake(40, 210, 300, 60)];
+    TKSlider *slider0 = [[TKSlider alloc] initWithFrame:CGRectMake(20, 210, 300, 60)];
     slider0.delegate = self;
     slider0.backgroundColor = UIColor.grayColor;
     slider0.minimumTrackTintColor = UIColor.redColor;
@@ -69,12 +69,8 @@
     slider0.bufferView.backgroundColor = UIColor.purpleColor;
     
 
-    
 
-
-
-    
-    TKSlider *slider1 = [[TKSlider alloc] initWithFrame:CGRectMake(40, 280, 300, 60)];
+    TKSlider *slider1 = [[TKSlider alloc] initWithFrame:CGRectMake(20, 280, 300, 60)];
     slider1.tag = 2;
     slider1.backgroundColor = UIColor.grayColor;
     slider1.minimumTrackTintColor = UIColor.redColor;
@@ -96,7 +92,22 @@
 
 
 
+    TKIndicatorView *indicatior0 = [[TKIndicatorView alloc] initWithFrame:CGRectMake(20, 50, 100, 100) style:TKIndicatorViewDefaultStyle];
+    indicatior0.lineColor = UIColor.purpleColor;
+    [self.view addSubview:indicatior0];
 
+
+    TKIndicatorView *indicatior1 = [[TKIndicatorView alloc] initWithFrame:CGRectMake(20, 150, 100, 100) style:TKIndicatorViewLinearStyle];
+    indicatior1.lineColor = UIColor.purpleColor;
+    [self.view addSubview:indicatior1];
+
+    TKIndicatorView *indicatior2 = [[TKIndicatorView alloc] initWithFrame:CGRectMake(20, 250, 100, 100) style:TKIndicatorViewLinearSegmentStyle];
+    indicatior2.lineColor = UIColor.purpleColor;
+    [self.view addSubview:indicatior2];
+
+    TKIndicatorView *indicatior3 = [[TKIndicatorView alloc] initWithFrame:CGRectMake(20, 350, 100, 100) style:TKIndicatorViewGradientStyle];
+    indicatior3.lineColor = UIColor.purpleColor;
+    [self.view addSubview:indicatior3];
     
 }
 

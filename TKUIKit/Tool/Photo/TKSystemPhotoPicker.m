@@ -62,7 +62,7 @@
     if (popover)
     {
         popover.sourceView = self.tragetVC.view;
-        popover.sourceRect = CGRectMake(Screen_Width/2.0, Screen_Height/2.0-64, 0, 0);
+        popover.sourceRect = CGRectMake(kScreenWidth/2.0, kScreenHeight/2.0-64, 0, 0);
         popover.permittedArrowDirections = UIPopoverArrowDirectionUp;
 //        popover.barButtonItem = showBtn;
     }
@@ -92,6 +92,7 @@
 
 - (void)setupPickerAuthWithType:(UIImagePickerControllerSourceType)sourceType
 {
+    NSLog(@"type:%ld",sourceType);
     if (sourceType == UIImagePickerControllerSourceTypeCamera) {
        [TKPermissionCamera authWithAlert:YES completion:^(BOOL isAuth) {
            if (isAuth) {
@@ -109,13 +110,11 @@
             }
         }];
 
-    
-
-//        [TKPermissionPhoto authWithAlert:YES completion:^(BOOL isAuth) {
-//           if (isAuth) {
-//               [self initImagePickerWithType:sourceType];
-//           }
-//        }];
+//        if (@available(iOS 14.0, *)) {
+//            [self initImagePickerWithType:sourceType];
+//        }else{
+//
+//        }
     }
 }
 
@@ -156,9 +155,9 @@
 //        UINavigationBar* aperBar = navigationBar;
         UINavigationBar* aperBar = [UINavigationBar appearance];//ios13.0+只能使用[UINavigationBar appearance]修改
 //        aperBar.translucent = NO;
-        UIColor *bgColor = [UIColor TKLightColor:UIColor.whiteColor darkColor:UIColor.blackColor];
-        UIColor *titleColor  = [UIColor TKLightColor:UIColor.blackColor darkColor:kRGBColor(188, 188, 192)];
-        UIColor *backColor   = [UIColor TKLightColor:kRGBColor(68, 68, 70) darkColor:kRGBColor(188, 188, 192)];
+        UIColor *bgColor = [UIColor colorWithLight:UIColor.whiteColor dark:UIColor.blackColor];
+        UIColor *titleColor  = [UIColor colorWithLight:UIColor.blackColor dark:kRGBColor(188, 188, 192)];
+        UIColor *backColor   = [UIColor colorWithLight:kRGBColor(68, 68, 70) dark:kRGBColor(188, 188, 192)];
         aperBar.barTintColor = bgColor;
         aperBar.titleTextAttributes = @{NSForegroundColorAttributeName:titleColor};
         aperBar.tintColor = backColor;

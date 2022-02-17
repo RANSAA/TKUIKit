@@ -11,6 +11,7 @@
 
 
 #import "TKSlider.h"
+#import "TKIndicatorView.h"
 
 
 
