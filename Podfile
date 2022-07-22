@@ -10,15 +10,11 @@ target 'TKUIKitDemo' do
 
   # Pods for TKUIKitDemo
 
-#  pod 'TKBaseKit', :path => "/Users/D/Remote/TKBaseKit"
-  pod 'TKBaseKit/TKSDKUniversal', :path => "/Users/D/Remote/TKBaseKit"
-#  pod 'TKPermissionKit/Photo' , :path => "/Users/D/Remote/TKPermissionKit"
-#  pod 'TKPermissionKit/Camera' , :path => "/Users/D/Remote/TKPermissionKit"
-
-
-
+#  pod 'TKBaseKit', :path => "/Users/D/Remote/TKSDKManager/TKBaseKit"
+  pod 'TKBaseKit/TKSDKUniversal', :path => "/Users/D/Remote/TKSDKManager/TKBaseKit"
 #  pod 'TKBaseKit/TKSDKTool'
 #  pod 'TKBaseKit/TKSDKUniversal'
+
   pod 'MBProgressHUD'
 
   # pod 'TKPermissionKit/Photo'                 #相册
@@ -30,7 +26,7 @@ target 'TKUIKitDemo' do
 
 
   pod 'YYImage'
-  pod 'YYImage/WebP'
+#  pod 'YYImage/WebP'
   pod 'SDWebImage'
 
 

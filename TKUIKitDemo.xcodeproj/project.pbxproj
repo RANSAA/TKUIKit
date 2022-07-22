@@ -39,6 +39,7 @@
 		3FD9F9C3259DB20A0034B8D1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9F9C2259DB20A0034B8D1 /* TableViewController.m */; };
 		3FD9F9C7259DB2440034B8D1 /* SilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9F9C6259DB2440034B8D1 /* SilderViewController.m */; };
 		3FD9F9CA259DB2600034B8D1 /* BaseViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9F9C9259DB2600034B8D1 /* BaseViewViewController.m */; };
+		3FDE639D288AB9FF0091741C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE639C288AB9FF0091741C /* AssetsLibrary.framework */; };
 		9AD73BCE6FED567D38AA845B /* Pods_TKUIKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB84E9E1CC19A4A233A191CE /* Pods_TKUIKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		3FD9F9C6259DB2440034B8D1 /* SilderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SilderViewController.m; sourceTree = "<group>"; };
 		3FD9F9C8259DB2600034B8D1 /* BaseViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewViewController.h; sourceTree = "<group>"; };
 		3FD9F9C9259DB2600034B8D1 /* BaseViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewViewController.m; sourceTree = "<group>"; };
+		3FDE639C288AB9FF0091741C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		A3A9BD032BA5E4151339BBFB /* Pods-TKUIKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKUIKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-TKUIKitDemo/Pods-TKUIKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CB84E9E1CC19A4A233A191CE /* Pods_TKUIKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TKUIKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD73BCE6FED567D38AA845B /* Pods_TKUIKitDemo.framework in Frameworks */,
+				3FDE639D288AB9FF0091741C /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +135,7 @@
 		224F75F5FE1DE830AFC191DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FDE639C288AB9FF0091741C /* AssetsLibrary.framework */,
 				CB84E9E1CC19A4A233A191CE /* Pods_TKUIKitDemo.framework */,
 			);
 			name = Frameworks;
@@ -642,7 +646,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sayaDev.TKUIKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -666,7 +670,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sayaDev.TKUIKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

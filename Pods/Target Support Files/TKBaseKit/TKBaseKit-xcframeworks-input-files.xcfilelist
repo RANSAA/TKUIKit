@@ -1,2 +1,2 @@
 ${PODS_ROOT}/Target Support Files/TKBaseKit/TKBaseKit-xcframeworks.sh
-${PODS_ROOT}/../../TKBaseKit/TKBaseKit/TKSDKUniversal/TKSDKUniversal.xcframework
+${PODS_ROOT}/../../TKSDKManager/TKBaseKit/TKBaseKit/TKSDKUniversal/TKSDKUniversal.xcframework
