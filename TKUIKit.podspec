@@ -3,7 +3,7 @@ file_source       = "*.{h,m,xib}"
 
 
 name		= "TKUIKit"
-version 	= "0.0.1"
+version 	= "0.0.2"
 homepage 	= "https://github.com/RANSAA/TKUIKit"
 
 

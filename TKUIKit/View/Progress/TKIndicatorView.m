@@ -197,8 +197,8 @@
             break;
         case TKIndicatorViewDefaultStyle:
         {
-            [self addDefaultIndicator];
-//            [self addDefaultIndicatorV2];
+//            [self addDefaultIndicator];
+            [self addDefaultIndicatorV2];
         }
             break;
         default:
@@ -228,8 +228,8 @@
             break;
         case TKIndicatorViewDefaultStyle:
         {
-            [self updateDefaultIndicator];
-//            [self updateDefaultIndicatorV2];
+//            [self updateDefaultIndicator];
+            [self updateDefaultIndicatorV2];
         }
             break;
         default:
@@ -279,24 +279,28 @@
     CGRect frame2 = CGRectMake(0, frame.size.height/2.0, frame.size.width, frame.size.height/2.0);
     UIColor *color1,*color2,*color3;
     color1 = self.lineColor;
-    color2 = [color1 colorWithAlphaComponent:0.5];
-    color3 = [color1 colorWithAlphaComponent:0.01];
+    color2 = [self.lineColor colorWithAlphaComponent:0.5];
+    color3 = [UIColor.whiteColor colorWithAlphaComponent:0.01];
 
     self.firstGradientLayer.colors = @[(__bridge id)color1.CGColor, (__bridge id)color2.CGColor];
-    self.firstGradientLayer.startPoint = CGPointMake(1, 0.5);
-    self.firstGradientLayer.endPoint = CGPointMake(0, 0.5);
+//    self.firstGradientLayer.startPoint = CGPointMake(1, 0.5);
+//    self.firstGradientLayer.endPoint = CGPointMake(0, 0.5);
+    self.firstGradientLayer.startPoint = CGPointMake(1, 0);
+    self.firstGradientLayer.endPoint = CGPointMake(0, 0);
     self.firstGradientLayer.frame = frame1;
 
     self.twoGradientLayer.colors = @[(__bridge id)color2.CGColor, (__bridge id)color3.CGColor];
-    self.twoGradientLayer.startPoint = CGPointMake(0, 0.5);
-    self.twoGradientLayer.endPoint = CGPointMake(1, 0.5);
+//    self.twoGradientLayer.startPoint = CGPointMake(0, 0.5);
+//    self.twoGradientLayer.endPoint = CGPointMake(1, 0.5);
+    self.twoGradientLayer.startPoint = CGPointMake(0, 0);
+    self.twoGradientLayer.endPoint = CGPointMake(1, 0);
     self.twoGradientLayer.frame = frame2;
 
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.arcCenter radius:self.arcRadius startAngle:0 endAngle: 2*M_PI clockwise:NO];
     self.firstShapeLayer.fillColor = [UIColor clearColor].CGColor;
     self.firstShapeLayer.lineWidth = self.lineWidth;
     self.firstShapeLayer.strokeColor = UIColor.redColor.CGColor;
-    self.firstShapeLayer.lineCap = kCALineCapSquare;
+    self.firstShapeLayer.lineCap = kCALineCapRound;
     self.firstShapeLayer.path = path.CGPath;
     self.firstShapeLayer.frame = frame;
 
@@ -305,13 +309,14 @@
     [self.twoShapeLayer addSublayer:self.twoGradientLayer];
     self.twoShapeLayer.mask = self.firstShapeLayer;
     [self.layer addSublayer:self.twoShapeLayer];
+
     CABasicAnimation *rotateAni = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     rotateAni.removedOnCompletion = NO;
     rotateAni.fromValue = @0;
     rotateAni.toValue = @(2*M_PI);
     rotateAni.repeatCount = HUGE_VALF;
     rotateAni.duration = 1.5f;
-    [self.twoShapeLayer addAnimation:rotateAni forKey:nil];  
+    [self.twoShapeLayer addAnimation:rotateAni forKey:nil];
 }
 
 - (void)updateDefaultIndicatorV2
@@ -326,8 +331,9 @@
     CGRect frame2 = CGRectMake(0, frame.size.height/2.0, frame.size.width, frame.size.height/2.0);
     UIColor *color1,*color2,*color3;
     color1 = self.lineColor;
-    color2 = [color1 colorWithAlphaComponent:0.5];
-    color3 = [color1 colorWithAlphaComponent:0.01];
+    color2 = [self.lineColor colorWithAlphaComponent:0.5];
+    color3 = [UIColor.whiteColor colorWithAlphaComponent:0.01];
+
 
     self.firstGradientLayer.colors = @[(__bridge id)color1.CGColor, (__bridge id)color2.CGColor];
     self.firstGradientLayer.frame = frame1;
@@ -335,19 +341,21 @@
     self.twoGradientLayer.colors = @[(__bridge id)color2.CGColor, (__bridge id)color3.CGColor];
     self.twoGradientLayer.frame = frame2;
 
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.arcCenter radius:self.arcRadius startAngle:0 endAngle: 2.0*M_PI clockwise:NO];
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.arcCenter radius:self.arcRadius startAngle:-0.1 endAngle: 0.1*M_PI clockwise:NO];
     self.firstShapeLayer.path = path.CGPath;
-    self.firstShapeLayer.frame = frame;
+//    self.firstShapeLayer.frame = frame;
 
     self.twoShapeLayer.frame = frame;
+    self.firstShapeLayer.frame = self.twoShapeLayer.bounds;
 }
 
 - (UIImage *)contextImage
 {
     UIGraphicsBeginImageContext(self.bounds.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    NSUInteger count = 24;
-    for (NSInteger i=0; i<count; i++) {
+    NSUInteger count = 48;
+    NSUInteger endCount = count -4;
+    for (NSInteger i=0; i<endCount; i++) {
         CGFloat w = 2*M_PI/count;
         CGFloat startAngle = w*i;
         CGFloat endAngle = startAngle+w;
@@ -355,6 +363,9 @@
         CGContextAddArc(context, self.arcCenter.x, self.arcCenter.y, self.arcRadius, startAngle, endAngle, NO);
         CGContextSetStrokeColorWithColor(context, storkColor.CGColor);
         CGContextSetLineWidth(context, self.lineWidth);
+        if (i==0) {
+            CGContextSetLineCap(context, kCGLineCapRound);
+        }
         CGContextStrokePath(context);
     }
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -421,6 +432,7 @@
     self.firstShapeLayer.strokeColor = self.lineColor.CGColor;
     self.firstShapeLayer.lineWidth = self.lineWidth;
     self.firstShapeLayer.frame = frame;
+    self.firstShapeLayer.lineCap = kCALineCapRound;
 }
 
 
