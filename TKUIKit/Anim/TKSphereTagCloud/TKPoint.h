@@ -9,16 +9,22 @@
 #ifndef TKPoint_h
 #define TKPoint_h
 
-struct TKPoint {
+//struct TKPoint {
+//    CGFloat x;
+//    CGFloat y;
+//    CGFloat z;
+//};
+//
+//typedef struct TKPoint TKPoint;
+
+typedef struct __attribute__((objc_boxable)) TKPoint{
     CGFloat x;
     CGFloat y;
     CGFloat z;
-};
-
-typedef struct TKPoint TKPoint;
+}TKPoint;
 
 
-TKPoint TKPointMake(CGFloat x, CGFloat y, CGFloat z) {
+UIKIT_STATIC_INLINE TKPoint TKPointMake(CGFloat x, CGFloat y, CGFloat z) {
     TKPoint point;
     point.x = x;
     point.y = y;
