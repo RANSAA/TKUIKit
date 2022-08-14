@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"SilderViewController viewDidLoad");
-    [self setupUI];
+  
 }
 
 - (void)dealloc
@@ -80,7 +80,7 @@
 //    slider1.minimumValueImage = image1;
 //    slider1.maximumValueImage = image2;
 //    slider1.thumbImage = image1;
-    slider1.thumbImage = [TKSlider imageWithSize:CGSizeMake(27, 27) color:UIColor.whiteColor];
+//    slider1.thumbImage = [TKSlider imageWithSize:CGSizeMake(27, 27) color:UIColor.cyanColor];
     slider1.minimumValue = 0;
     slider1.maximumValue = 50;
     slider1.delegate = self;
@@ -107,7 +107,12 @@
 
     TKIndicatorView *indicatior3 = [[TKIndicatorView alloc] initWithFrame:CGRectMake(20, 350, 100, 100) style:TKIndicatorViewGradientStyle];
     indicatior3.lineColor = UIColor.purpleColor;
+    indicatior3.patternColor = @[UIColor.redColor,UIColor.orangeColor,UIColor.yellowColor,UIColor.cyanColor];
     [self.view addSubview:indicatior3];
+
+    TKIndicatorView *indicatior4 = [[TKIndicatorView alloc] initWithFrame:CGRectMake(20, 450, 100, 100)];
+    indicatior4.lineColor = UIColor.cyanColor;
+    [self.view addSubview:indicatior4];
     
 }
 

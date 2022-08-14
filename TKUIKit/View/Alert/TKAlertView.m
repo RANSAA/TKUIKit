@@ -24,7 +24,7 @@
 
 - (void)instanceSubView
 {
-    [self.showView setLayerCornerRadiusWith:10];
+    [self.showView setLayerCornerRadiusWith:12];
     [self.btnDone addTarget:self action:@selector(btnDoneAction) forControlEvents:UIControlEventTouchUpInside];
     [self.btnOK addTarget:self action:@selector(btnDoneAction) forControlEvents:UIControlEventTouchUpInside];
     [self.btnCancel addTarget:self action:@selector(btnCancelAction) forControlEvents:UIControlEventTouchUpInside];

@@ -635,6 +635,7 @@
 				ASSET_PACK_MANIFEST_URL_PREFIX = "";
 				CODE_SIGN_ENTITLEMENTS = TKUIKitDemo/TKUIKitDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 39E8LG3NH3;
 				EXCLUDED_ARCHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
