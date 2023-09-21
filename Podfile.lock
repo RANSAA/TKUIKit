@@ -3,12 +3,12 @@ PODS:
   - SDWebImage (5.12.3):
     - SDWebImage/Core (= 5.12.3)
   - SDWebImage/Core (5.12.3)
-  - TKBaseKit/TKSDKUniversal (2.2.0)
-  - TKPermissionKit/Camera (1.2.4):
+  - TKBaseKit/TKSDKUniversal (2.2.2)
+  - TKPermissionKit/Camera (1.2.6):
     - TKPermissionKit/Public
-  - TKPermissionKit/Photo (1.2.4):
+  - TKPermissionKit/Photo (1.2.6):
     - TKPermissionKit/Public
-  - TKPermissionKit/Public (1.2.4)
+  - TKPermissionKit/Public (1.2.6)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
   - YYImage/Core (1.0.4)
@@ -16,9 +16,9 @@ PODS:
 DEPENDENCIES:
   - MBProgressHUD
   - SDWebImage
-  - TKBaseKit/TKSDKUniversal (from `/Users/D/Remote/TKSDKManager/TKBaseKit`)
-  - TKPermissionKit/Camera (from `/Users/D/Remote/TKPermissionKit`)
-  - TKPermissionKit/Photo (from `/Users/D/Remote/TKPermissionKit`)
+  - TKBaseKit/TKSDKUniversal (from `/Volumes/MacOS/Users/D/Remote/TKSDKManager/TKBaseKit`)
+  - TKPermissionKit/Camera (from `/Volumes/MacOS/Users/D/Remote/TKPermissionKit`)
+  - TKPermissionKit/Photo (from `/Volumes/MacOS/Users/D/Remote/TKPermissionKit`)
   - YYImage
 
 SPEC REPOS:
@@ -29,17 +29,17 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   TKBaseKit:
-    :path: "/Users/D/Remote/TKSDKManager/TKBaseKit"
+    :path: "/Volumes/MacOS/Users/D/Remote/TKSDKManager/TKBaseKit"
   TKPermissionKit:
-    :path: "/Users/D/Remote/TKPermissionKit"
+    :path: "/Volumes/MacOS/Users/D/Remote/TKPermissionKit"
 
 SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
-  TKBaseKit: fde529df83871099ebeb818077674940bccbfcf0
-  TKPermissionKit: 4226853b17bc39c40ddaf28771c81a0a33544e35
+  TKBaseKit: f33f761cd85229633351a9b15f0990648f3798d6
+  TKPermissionKit: adf490d7b40546343fff2b37921db9e1a8532864
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: f48b396b54757282fd68af58fc25cc1634887b00
+PODFILE CHECKSUM: f7e0c9f29b197483c4a43d4f6b4a9bddf0462b5a
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.1
