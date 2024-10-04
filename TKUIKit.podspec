@@ -53,8 +53,9 @@ s.subspec 'Core' do |ss|
   ss.resource_bundles = {
      ## pod 编译后会生成TKUIKit.bundle 文件
     'TKUIKit' => [
-      "#{name}/**/*.{xib}",      
-      "#{name}/**/**/*.{xib}",       
+      "#{name}/*/*.{xib}",      
+      "#{name}/*/*/*.{xib}",   
+      "#{name}/*/*/*/*.{xib}",      
     ],
     ## 隐私清单 - 注意:建议与资源文件分别存放在不同的bundle中
     'TKUIKit.Privacy' => [
