@@ -24,9 +24,9 @@ s.static_framework = true  #静态库---该pod中依赖了静态库，需要将�
 
 
 # s.pod_target_xcconfig = { 'PRODUCT_BUNDLE_IDENTIFIER': 'com.sayaDev.TKUIKit'}
-s.info_plist = {
-  'TEST-INFO-PLIST' => 'com.sayaDev.TKUIKit',
-}
+# s.info_plist = {
+#   'TEST-INFO-PLIST' => 'com.sayaDev.TKUIKit',
+# }
 # s.user_target_xcconfig = { 'ABC' => 'YES' }
 
 
