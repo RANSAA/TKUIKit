@@ -3,7 +3,7 @@ file_source       = "*.{h,m,xib}"
 
 
 name		= "TKUIKit"
-version 	= "0.0.2"
+version 	= "0.0.3"
 homepage 	= "https://github.com/RANSAA/TKUIKit"
 
 
@@ -52,7 +52,11 @@ s.subspec 'Core' do |ss|
   ss.public_header_files  = "#{name}/Core/#{file_header}" , "#{name}/Core/**/#{file_header}"
   # ss.resources            = "#{name}/Core/*.bundle" ##将项目中的bundle文件导入pod的Resources文件夹中
   ss.resource_bundles = {
-    'TKUIKit' => ["#{name}/**/**/*.{xib}"]#pod 编译后会生成TKUIKit.bundle 文件
+    'TKUIKit' => [
+      "#{name}/**/*.{xib}",       ## pod 编译后会生成TKUIKit.bundle 文件
+      "#{name}/**/**/*.{xib}",       
+      "#{name}/Core/**/PrivacyInfo.xcprivacy",  ## 隐私清单
+    ]
   }
   ss.dependency 'TKBaseKit/TKSDKUniversal'
   ss.dependency 'TKPermissionKit/Photo'
